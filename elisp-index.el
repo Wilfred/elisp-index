@@ -5,6 +5,7 @@
 
 ;; Author: Wilfred Hughes <me@wilfred.me.uk>
 ;; Keywords: lisp
+;; Package-Requires: ((dash "2.12.0") (f "0.19.0"))
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -25,6 +26,10 @@
 
 ;;; Code:
 
+(require 'dash)
+(require 'f)
+(require 'json)
+
 (defun elisp-index--symbols (buf)
   (let ((read-with-symbol-positions t)
         syms)
@@ -37,7 +42,9 @@
                   (append syms read-symbol-positions-list)))
         (error
          (if (equal (car err) 'end-of-file)
-             syms
+             (-map
+              (-lambda ((sym . pos)) (cons (symbol-name sym) pos))
+              syms)
            ;; Some unexpected error, propagate.
            (error "Unexpected error whilst reading %s position %s: %s"
                   (buffer-file-name) (point) err)))))))
@@ -64,7 +71,7 @@
                    (start-pos (scan-sexps (point) -1))
                    (fun-sym (elisp-index--function-def-p form)))
               (when fun-sym
-                (push (cons fun-sym start-pos) funs))))
+                (push (cons (symbol-name fun-sym) start-pos) funs))))
         (error
          (if (equal (car err) 'end-of-file)
              (nreverse funs)
@@ -72,12 +79,26 @@
            (error "Unexpected error whilst reading %s position %s: %s"
                   (buffer-file-name) (point) err)))))))
 
-(defun elisp-index (path)
-  (let ((buf (find-file-noselect path))
-        )
-    (list
-     :functions (elisp-index--functions buf)
-     :symbols (elisp-index--symbols buf))
+(defun elisp-index--encode (path)
+  (let* ((buf (find-file-noselect path))
+         (refs (make-hash-table)))
+    (puthash 'symbols (elisp-index--symbols buf) refs)
+    (puthash 'functions (elisp-index--functions buf) refs)
+    (json-encode refs)))
+
+(defun elisp-index--write (path dest-dir)
+  "Read the elisp at PATH, and write a copy of the file and JSON
+summary to DEST-DIR."
+  (let* ((filename (f-filename path))
+         (json-filename (format "%s.json" filename))
+         (buf (find-file-noselect path))
+         (src (with-current-buffer buf (buffer-string)))
+         )
+    (f-write
+     (elisp-index--encode path)
+     'utf-8
+     (f-join dest-dir json-filename))
+    (princ (format "Wrote %s\n" json-filename))
     ))
 
 (provide 'elisp-index)
