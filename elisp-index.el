@@ -81,7 +81,8 @@
 
 (defun elisp-index--encode (path)
   (let* ((buf (find-file-noselect path))
-         (refs (make-hash-table)))
+         (refs (make-hash-table))
+         (json-encoding-pretty-print t))
     (puthash 'symbols (elisp-index--symbols buf) refs)
     (puthash 'functions (elisp-index--functions buf) refs)
     (json-encode refs)))
