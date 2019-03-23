@@ -1,6 +1,7 @@
 ;;; elisp-index.el --- Generate a list of all symbols in an elisp file  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2019  Wilfred Hughes
+;; Version: 0.1
 
 ;; Author: Wilfred Hughes <me@wilfred.me.uk>
 ;; Keywords: lisp
@@ -80,4 +81,4 @@
     ))
 
 (provide 'elisp-index)
-;;; elisp-indexer.el ends here
+;;; elisp-index.el ends here
