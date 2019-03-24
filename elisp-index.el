@@ -65,7 +65,7 @@
 
 (defun elisp-index--functions (buf)
   (let ((read-with-symbol-positions t)
-        funs)
+        (funs (make-hash-table)))
     (with-current-buffer buf
       (goto-char (point-min))
       (condition-case err
@@ -74,10 +74,10 @@
                    (start-pos (scan-sexps (point) -1))
                    (fun-sym (elisp-index--function-def-p form)))
               (when fun-sym
-                (push (vector (symbol-name fun-sym) start-pos) funs))))
+                (puthash fun-sym start-pos funs))))
         (error
          (if (equal (car err) 'end-of-file)
-             (nreverse funs)
+             funs
            ;; Some unexpected error, propagate.
            (error "Unexpected error whilst reading %s position %s: %s"
                   (buffer-file-name) (point) err)))))))
@@ -94,7 +94,7 @@
   "Read the elisp at PATH, and write a copy of the file and JSON
 summary to DEST-DIR."
   (let* ((filename (f-filename path))
-         (json-filename (format "%s.json" filename))
+         (json-filename (format "%s.json" (f-no-ext filename)))
          (buf (find-file-noselect path))
          (src (with-current-buffer buf (buffer-string)))
          )
@@ -102,7 +102,7 @@ summary to DEST-DIR."
      (elisp-index--encode path)
      'utf-8
      (f-join dest-dir json-filename))
-    (princ (format "Wrote %s\n" json-filename))
+    (princ (format "Wrote %s\n" (f-join dest-dir json-filename)))
     ))
 
 (provide 'elisp-index)

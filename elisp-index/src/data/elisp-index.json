@@ -1,0 +1,352 @@
+{
+  "functions": {
+    "elisp-index--write": 3150,
+    "elisp-index--encode": 2860,
+    "elisp-index--functions": 2157,
+    "elisp-index--function-def-p": 1735,
+    "elisp-index--symbols": 1000
+  },
+  "symbols": {
+    "elisp-index": [
+      12
+    ],
+    "provide": [
+      3
+    ],
+    "princ": [
+      442
+    ],
+    "f-join": [
+      405,
+      470
+    ],
+    "utf-8": [
+      393
+    ],
+    "f-write": [
+      347
+    ],
+    "buffer-string": [
+      314
+    ],
+    "src": [
+      284
+    ],
+    "f-no-ext": [
+      212
+    ],
+    "format": [
+      194,
+      449
+    ],
+    "json-filename": [
+      179,
+      421,
+      486
+    ],
+    "f-filename": [
+      151
+    ],
+    "filename": [
+      141,
+      221
+    ],
+    "dest-dir": [
+      34,
+      412,
+      477
+    ],
+    "elisp-index--write": [
+      9
+    ],
+    "json-encode": [
+      271
+    ],
+    "functions": [
+      221
+    ],
+    "symbols": [
+      166
+    ],
+    "json-encoding-pretty-print": [
+      121
+    ],
+    "refs": [
+      87,
+      201,
+      260,
+      283
+    ],
+    "find-file-noselect": [
+      51,
+      248
+    ],
+    "path": [
+      30,
+      70,
+      29,
+      162,
+      267,
+      381
+    ],
+    "elisp-index--encode": [
+      9,
+      361
+    ],
+    "fun-sym": [
+      327,
+      392,
+      425
+    ],
+    "scan-sexps": [
+      283
+    ],
+    "start-pos": [
+      272,
+      433
+    ],
+    "funs": [
+      86,
+      443,
+      524
+    ],
+    "elisp-index--functions": [
+      9,
+      232
+    ],
+    "nth": [
+      404
+    ],
+    "function": [
+      386
+    ],
+    "defalias": [
+      342
+    ],
+    "eq": [
+      329,
+      366
+    ],
+    "and": [
+      324
+    ],
+    "when": [
+      310,
+      387
+    ],
+    "body": [
+      256,
+      379
+    ],
+    "cdr-safe": [
+      225,
+      272,
+      282
+    ],
+    "fun-name": [
+      205,
+      410
+    ],
+    "car-safe": [
+      175,
+      215,
+      262,
+      370
+    ],
+    "head-sym": [
+      165,
+      332
+    ],
+    "macroexpand-all": [
+      132
+    ],
+    "expanded": [
+      122,
+      184,
+      234,
+      291
+    ],
+    "let*": [
+      115,
+      228,
+      39,
+      134
+    ],
+    "form": [
+      38,
+      148,
+      235,
+      364
+    ],
+    "elisp-index--function-def-p": [
+      9,
+      336
+    ],
+    "point": [
+      718,
+      295,
+      686
+    ],
+    "buffer-file-name": [
+      699,
+      667
+    ],
+    "end-of-file": [
+      530,
+      498
+    ],
+    "car": [
+      520,
+      488
+    ],
+    "equal": [
+      513,
+      481
+    ],
+    "if": [
+      509,
+      477
+    ],
+    "error": [
+      493,
+      621,
+      461,
+      589
+    ],
+    "gethash": [
+      435
+    ],
+    "-snoc": [
+      428
+    ],
+    "puthash": [
+      381,
+      417,
+      157,
+      212
+    ],
+    "symbol-name": [
+      346
+    ],
+    "setq": [
+      336
+    ],
+    "pos": [
+      313,
+      453
+    ],
+    "sym": [
+      307,
+      341,
+      358,
+      406,
+      443
+    ],
+    "-lambda": [
+      297
+    ],
+    "read-symbol-positions-list": [
+      255
+    ],
+    "-each": [
+      249
+    ],
+    "read": [
+      226,
+      241
+    ],
+    "while": [
+      205,
+      207
+    ],
+    "err": [
+      190,
+      524,
+      725,
+      192,
+      492,
+      693
+    ],
+    "condition-case": [
+      175,
+      177
+    ],
+    "point-min": [
+      156,
+      158
+    ],
+    "goto-char": [
+      145,
+      147
+    ],
+    "with-current-buffer": [
+      114,
+      116,
+      289
+    ],
+    "make-hash-table": [
+      90,
+      92,
+      93
+    ],
+    "syms": [
+      84,
+      447,
+      475,
+      556
+    ],
+    "t": [
+      72,
+      211,
+      74,
+      213,
+      148
+    ],
+    "read-with-symbol-positions": [
+      45,
+      47
+    ],
+    "let": [
+      39,
+      41
+    ],
+    "buf": [
+      31,
+      134,
+      231,
+      33,
+      136,
+      246,
+      46,
+      196,
+      255,
+      243,
+      309
+    ],
+    "elisp-index--symbols": [
+      9,
+      175
+    ],
+    "defun": [
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "json": [
+      11
+    ],
+    "f": [
+      11
+    ],
+    "dash": [
+      963
+    ],
+    "require": [
+      954,
+      2,
+      2
+    ]
+  }
+}

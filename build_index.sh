@@ -21,7 +21,7 @@
 (if argv
     (let ((path (car argv)))
       (princ (format "Indexing %s\n" path))
-      (elisp-index--write path default-directory))
+      (elisp-index--write path (f-join default-directory "elisp-index/src/data")))
   (message "Usage: <PATH>")
   (kill-emacs 1))
 (kill-emacs 0)
