@@ -32,19 +32,22 @@
 
 (defun elisp-index--symbols (buf)
   (let ((read-with-symbol-positions t)
-        syms)
+        (syms (make-hash-table)))
     (with-current-buffer buf
       (goto-char (point-min))
       (condition-case err
           (while t
             (read buf)
-            (setq syms
-                  (append syms read-symbol-positions-list)))
+            (-each read-symbol-positions-list
+              (-lambda ((sym . pos))
+                (setq sym (symbol-name sym))
+                (puthash
+                 sym
+                 (-snoc (gethash sym syms) pos)
+                 syms))))
         (error
          (if (equal (car err) 'end-of-file)
-             (-map
-              (-lambda ((sym . pos)) (cons (symbol-name sym) pos))
-              syms)
+             syms
            ;; Some unexpected error, propagate.
            (error "Unexpected error whilst reading %s position %s: %s"
                   (buffer-file-name) (point) err)))))))
@@ -71,7 +74,7 @@
                    (start-pos (scan-sexps (point) -1))
                    (fun-sym (elisp-index--function-def-p form)))
               (when fun-sym
-                (push (cons (symbol-name fun-sym) start-pos) funs))))
+                (push (vector (symbol-name fun-sym) start-pos) funs))))
         (error
          (if (equal (car err) 'end-of-file)
              (nreverse funs)
