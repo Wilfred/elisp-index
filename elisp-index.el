@@ -5,7 +5,7 @@
 
 ;; Author: Wilfred Hughes <me@wilfred.me.uk>
 ;; Keywords: lisp
-;; Package-Requires: ((dash "2.12.0") (f "0.19.0"))
+;; Package-Requires: ((dash "2.12.0") (f "0.19.0") (ht "2.2"))
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -29,10 +29,11 @@
 (require 'dash)
 (require 'f)
 (require 'json)
+(require 'ht)
 
 (defun elisp-index--symbols (buf)
   (let ((read-with-symbol-positions t)
-        (syms (make-hash-table)))
+        syms)
     (with-current-buffer buf
       (goto-char (point-min))
       (condition-case err
@@ -40,14 +41,12 @@
             (read buf)
             (-each read-symbol-positions-list
               (-lambda ((sym . pos))
-                (setq sym (symbol-name sym))
-                (puthash
-                 sym
-                 (-snoc (gethash sym syms) pos)
+                (push
+                 (ht ("name" (symbol-name sym)) ("position" pos))
                  syms))))
         (error
          (if (equal (car err) 'end-of-file)
-             syms
+             (nreverse syms)
            ;; Some unexpected error, propagate.
            (error "Unexpected error whilst reading %s position %s: %s"
                   (buffer-file-name) (point) err)))))))
@@ -65,7 +64,7 @@
 
 (defun elisp-index--functions (buf)
   (let ((read-with-symbol-positions t)
-        (funs (make-hash-table)))
+        funs)
     (with-current-buffer buf
       (goto-char (point-min))
       (condition-case err
@@ -74,21 +73,22 @@
                    (start-pos (scan-sexps (point) -1))
                    (fun-sym (elisp-index--function-def-p form)))
               (when fun-sym
-                (puthash fun-sym start-pos funs))))
+                (push
+                 (ht ("name" (symbol-name fun-sym)) ("position" start-pos))
+                 funs))))
         (error
          (if (equal (car err) 'end-of-file)
-             funs
+             (nreverse funs)
            ;; Some unexpected error, propagate.
            (error "Unexpected error whilst reading %s position %s: %s"
                   (buffer-file-name) (point) err)))))))
 
 (defun elisp-index--encode (path)
   (let* ((buf (find-file-noselect path))
-         (refs (make-hash-table))
          (json-encoding-pretty-print t))
-    (puthash 'symbols (elisp-index--symbols buf) refs)
-    (puthash 'functions (elisp-index--functions buf) refs)
-    (json-encode refs)))
+    (json-encode
+     (ht ("symbols" (elisp-index--symbols buf))
+         ("functions" (elisp-index--functions buf))))))
 
 (defun elisp-index--write (path dest-dir)
   "Read the elisp at PATH, and write a copy of the file and JSON

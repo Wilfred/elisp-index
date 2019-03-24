@@ -1,0 +1,710 @@
+{
+  "functions": [
+    {
+      "position": 1025,
+      "name": "elisp-index--symbols"
+    },
+    {
+      "position": 1700,
+      "name": "elisp-index--function-def-p"
+    },
+    {
+      "position": 2122,
+      "name": "elisp-index--functions"
+    },
+    {
+      "position": 2888,
+      "name": "elisp-index--encode"
+    },
+    {
+      "position": 3126,
+      "name": "elisp-index--write"
+    }
+  ],
+  "symbols": [
+    {
+      "position": 965,
+      "name": "require"
+    },
+    {
+      "position": 974,
+      "name": "dash"
+    },
+    {
+      "position": 2,
+      "name": "require"
+    },
+    {
+      "position": 11,
+      "name": "f"
+    },
+    {
+      "position": 2,
+      "name": "require"
+    },
+    {
+      "position": 11,
+      "name": "json"
+    },
+    {
+      "position": 2,
+      "name": "require"
+    },
+    {
+      "position": 11,
+      "name": "ht"
+    },
+    {
+      "position": 3,
+      "name": "defun"
+    },
+    {
+      "position": 9,
+      "name": "elisp-index--symbols"
+    },
+    {
+      "position": 31,
+      "name": "buf"
+    },
+    {
+      "position": 39,
+      "name": "let"
+    },
+    {
+      "position": 45,
+      "name": "read-with-symbol-positions"
+    },
+    {
+      "position": 72,
+      "name": "t"
+    },
+    {
+      "position": 83,
+      "name": "syms"
+    },
+    {
+      "position": 94,
+      "name": "with-current-buffer"
+    },
+    {
+      "position": 114,
+      "name": "buf"
+    },
+    {
+      "position": 125,
+      "name": "goto-char"
+    },
+    {
+      "position": 136,
+      "name": "point-min"
+    },
+    {
+      "position": 155,
+      "name": "condition-case"
+    },
+    {
+      "position": 170,
+      "name": "err"
+    },
+    {
+      "position": 185,
+      "name": "while"
+    },
+    {
+      "position": 191,
+      "name": "t"
+    },
+    {
+      "position": 206,
+      "name": "read"
+    },
+    {
+      "position": 211,
+      "name": "buf"
+    },
+    {
+      "position": 229,
+      "name": "-each"
+    },
+    {
+      "position": 235,
+      "name": "read-symbol-positions-list"
+    },
+    {
+      "position": 277,
+      "name": "-lambda"
+    },
+    {
+      "position": 287,
+      "name": "sym"
+    },
+    {
+      "position": 293,
+      "name": "pos"
+    },
+    {
+      "position": 316,
+      "name": "push"
+    },
+    {
+      "position": 339,
+      "name": "ht"
+    },
+    {
+      "position": 351,
+      "name": "symbol-name"
+    },
+    {
+      "position": 363,
+      "name": "sym"
+    },
+    {
+      "position": 381,
+      "name": "pos"
+    },
+    {
+      "position": 404,
+      "name": "syms"
+    },
+    {
+      "position": 422,
+      "name": "error"
+    },
+    {
+      "position": 438,
+      "name": "if"
+    },
+    {
+      "position": 442,
+      "name": "equal"
+    },
+    {
+      "position": 449,
+      "name": "car"
+    },
+    {
+      "position": 453,
+      "name": "err"
+    },
+    {
+      "position": 459,
+      "name": "end-of-file"
+    },
+    {
+      "position": 486,
+      "name": "nreverse"
+    },
+    {
+      "position": 495,
+      "name": "syms"
+    },
+    {
+      "position": 561,
+      "name": "error"
+    },
+    {
+      "position": 639,
+      "name": "buffer-file-name"
+    },
+    {
+      "position": 658,
+      "name": "point"
+    },
+    {
+      "position": 665,
+      "name": "err"
+    },
+    {
+      "position": 3,
+      "name": "defun"
+    },
+    {
+      "position": 9,
+      "name": "elisp-index--function-def-p"
+    },
+    {
+      "position": 38,
+      "name": "form"
+    },
+    {
+      "position": 115,
+      "name": "let*"
+    },
+    {
+      "position": 122,
+      "name": "expanded"
+    },
+    {
+      "position": 132,
+      "name": "macroexpand-all"
+    },
+    {
+      "position": 148,
+      "name": "form"
+    },
+    {
+      "position": 165,
+      "name": "head-sym"
+    },
+    {
+      "position": 175,
+      "name": "car-safe"
+    },
+    {
+      "position": 184,
+      "name": "expanded"
+    },
+    {
+      "position": 205,
+      "name": "fun-name"
+    },
+    {
+      "position": 215,
+      "name": "car-safe"
+    },
+    {
+      "position": 225,
+      "name": "cdr-safe"
+    },
+    {
+      "position": 234,
+      "name": "expanded"
+    },
+    {
+      "position": 256,
+      "name": "body"
+    },
+    {
+      "position": 262,
+      "name": "car-safe"
+    },
+    {
+      "position": 272,
+      "name": "cdr-safe"
+    },
+    {
+      "position": 282,
+      "name": "cdr-safe"
+    },
+    {
+      "position": 291,
+      "name": "expanded"
+    },
+    {
+      "position": 310,
+      "name": "when"
+    },
+    {
+      "position": 324,
+      "name": "and"
+    },
+    {
+      "position": 329,
+      "name": "eq"
+    },
+    {
+      "position": 332,
+      "name": "head-sym"
+    },
+    {
+      "position": 342,
+      "name": "defalias"
+    },
+    {
+      "position": 366,
+      "name": "eq"
+    },
+    {
+      "position": 370,
+      "name": "car-safe"
+    },
+    {
+      "position": 379,
+      "name": "body"
+    },
+    {
+      "position": 386,
+      "name": "function"
+    },
+    {
+      "position": 404,
+      "name": "nth"
+    },
+    {
+      "position": 410,
+      "name": "fun-name"
+    },
+    {
+      "position": 3,
+      "name": "defun"
+    },
+    {
+      "position": 9,
+      "name": "elisp-index--functions"
+    },
+    {
+      "position": 33,
+      "name": "buf"
+    },
+    {
+      "position": 41,
+      "name": "let"
+    },
+    {
+      "position": 47,
+      "name": "read-with-symbol-positions"
+    },
+    {
+      "position": 74,
+      "name": "t"
+    },
+    {
+      "position": 85,
+      "name": "funs"
+    },
+    {
+      "position": 96,
+      "name": "with-current-buffer"
+    },
+    {
+      "position": 116,
+      "name": "buf"
+    },
+    {
+      "position": 127,
+      "name": "goto-char"
+    },
+    {
+      "position": 138,
+      "name": "point-min"
+    },
+    {
+      "position": 157,
+      "name": "condition-case"
+    },
+    {
+      "position": 172,
+      "name": "err"
+    },
+    {
+      "position": 187,
+      "name": "while"
+    },
+    {
+      "position": 193,
+      "name": "t"
+    },
+    {
+      "position": 208,
+      "name": "let*"
+    },
+    {
+      "position": 215,
+      "name": "form"
+    },
+    {
+      "position": 221,
+      "name": "read"
+    },
+    {
+      "position": 226,
+      "name": "buf"
+    },
+    {
+      "position": 252,
+      "name": "start-pos"
+    },
+    {
+      "position": 263,
+      "name": "scan-sexps"
+    },
+    {
+      "position": 275,
+      "name": "point"
+    },
+    {
+      "position": 307,
+      "name": "fun-sym"
+    },
+    {
+      "position": 316,
+      "name": "elisp-index--function-def-p"
+    },
+    {
+      "position": 344,
+      "name": "form"
+    },
+    {
+      "position": 367,
+      "name": "when"
+    },
+    {
+      "position": 372,
+      "name": "fun-sym"
+    },
+    {
+      "position": 397,
+      "name": "push"
+    },
+    {
+      "position": 420,
+      "name": "ht"
+    },
+    {
+      "position": 432,
+      "name": "symbol-name"
+    },
+    {
+      "position": 444,
+      "name": "fun-sym"
+    },
+    {
+      "position": 466,
+      "name": "start-pos"
+    },
+    {
+      "position": 495,
+      "name": "funs"
+    },
+    {
+      "position": 513,
+      "name": "error"
+    },
+    {
+      "position": 529,
+      "name": "if"
+    },
+    {
+      "position": 533,
+      "name": "equal"
+    },
+    {
+      "position": 540,
+      "name": "car"
+    },
+    {
+      "position": 544,
+      "name": "err"
+    },
+    {
+      "position": 550,
+      "name": "end-of-file"
+    },
+    {
+      "position": 577,
+      "name": "nreverse"
+    },
+    {
+      "position": 586,
+      "name": "funs"
+    },
+    {
+      "position": 652,
+      "name": "error"
+    },
+    {
+      "position": 730,
+      "name": "buffer-file-name"
+    },
+    {
+      "position": 749,
+      "name": "point"
+    },
+    {
+      "position": 756,
+      "name": "err"
+    },
+    {
+      "position": 3,
+      "name": "defun"
+    },
+    {
+      "position": 9,
+      "name": "elisp-index--encode"
+    },
+    {
+      "position": 30,
+      "name": "path"
+    },
+    {
+      "position": 39,
+      "name": "let*"
+    },
+    {
+      "position": 46,
+      "name": "buf"
+    },
+    {
+      "position": 51,
+      "name": "find-file-noselect"
+    },
+    {
+      "position": 70,
+      "name": "path"
+    },
+    {
+      "position": 87,
+      "name": "json-encoding-pretty-print"
+    },
+    {
+      "position": 114,
+      "name": "t"
+    },
+    {
+      "position": 123,
+      "name": "json-encode"
+    },
+    {
+      "position": 141,
+      "name": "ht"
+    },
+    {
+      "position": 156,
+      "name": "elisp-index--symbols"
+    },
+    {
+      "position": 177,
+      "name": "buf"
+    },
+    {
+      "position": 206,
+      "name": "elisp-index--functions"
+    },
+    {
+      "position": 229,
+      "name": "buf"
+    },
+    {
+      "position": 3,
+      "name": "defun"
+    },
+    {
+      "position": 9,
+      "name": "elisp-index--write"
+    },
+    {
+      "position": 29,
+      "name": "path"
+    },
+    {
+      "position": 34,
+      "name": "dest-dir"
+    },
+    {
+      "position": 134,
+      "name": "let*"
+    },
+    {
+      "position": 141,
+      "name": "filename"
+    },
+    {
+      "position": 151,
+      "name": "f-filename"
+    },
+    {
+      "position": 162,
+      "name": "path"
+    },
+    {
+      "position": 179,
+      "name": "json-filename"
+    },
+    {
+      "position": 194,
+      "name": "format"
+    },
+    {
+      "position": 212,
+      "name": "f-no-ext"
+    },
+    {
+      "position": 221,
+      "name": "filename"
+    },
+    {
+      "position": 243,
+      "name": "buf"
+    },
+    {
+      "position": 248,
+      "name": "find-file-noselect"
+    },
+    {
+      "position": 267,
+      "name": "path"
+    },
+    {
+      "position": 284,
+      "name": "src"
+    },
+    {
+      "position": 289,
+      "name": "with-current-buffer"
+    },
+    {
+      "position": 309,
+      "name": "buf"
+    },
+    {
+      "position": 314,
+      "name": "buffer-string"
+    },
+    {
+      "position": 347,
+      "name": "f-write"
+    },
+    {
+      "position": 361,
+      "name": "elisp-index--encode"
+    },
+    {
+      "position": 381,
+      "name": "path"
+    },
+    {
+      "position": 393,
+      "name": "utf-8"
+    },
+    {
+      "position": 405,
+      "name": "f-join"
+    },
+    {
+      "position": 412,
+      "name": "dest-dir"
+    },
+    {
+      "position": 421,
+      "name": "json-filename"
+    },
+    {
+      "position": 442,
+      "name": "princ"
+    },
+    {
+      "position": 449,
+      "name": "format"
+    },
+    {
+      "position": 470,
+      "name": "f-join"
+    },
+    {
+      "position": 477,
+      "name": "dest-dir"
+    },
+    {
+      "position": 486,
+      "name": "json-filename"
+    },
+    {
+      "position": 3,
+      "name": "provide"
+    },
+    {
+      "position": 12,
+      "name": "elisp-index"
+    }
+  ]
+}
