@@ -1,2 +1,7 @@
 .cask
 *.elc
+
+# gatsby files
+node_modules
+.cache/
+public
