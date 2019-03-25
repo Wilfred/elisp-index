@@ -62,6 +62,25 @@
              (eq (car-safe body) 'function))
       (nth 1 fun-name))))
 
+(defun elisp-index--walk-calls (form)
+  (cond
+   ((not (consp form))
+    nil)
+   ((eq (car form) 'quote)
+    nil)
+   (t
+    (cons
+     (car form)
+     (when (consp (cdr form))
+       (--mapcat
+        (elisp-index--walk-calls it)
+        (cdr form)))))))
+
+(defun elisp-index--fun-calls (form src-syms)
+  "Return a list of all the functions called in FORM.
+Ignore function calls that are only introduced by macros."
+  (let ((expanded (macroexpand-all form)))))
+
 (defun elisp-index--functions (buf)
   (let ((read-with-symbol-positions t)
         funs)
