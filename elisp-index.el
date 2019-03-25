@@ -50,6 +50,8 @@
                     (push
                      (ht
                       ("name" (symbol-name sym))
+                      ;; TODO: fix the other positions for
+                      ;; symbols/definitions.
                       ("position" (+ pos start-pos)))
                      syms))))))
         (error
@@ -96,6 +98,11 @@
     nil)
    ((eq (car form) 'quote)
     nil)
+   ((or (eq (car form) 'while)
+        (eq (car form) 'if))
+    (--mapcat
+     (elisp-index--walk-calls it)
+     (cdr form)))
    ((eq (car form) 'function)
     (if (symbolp (cadr form))
         ;; For #'foo, assume it's a call.
@@ -108,6 +115,7 @@
      (cddr form)))
    ((eq (car form) 'defalias)
     (elisp-index--walk-calls (nth 2 form)))
+
    ((or (eq (car form) 'let)
         (eq (car form) 'let*))
     (let ((head (nth 1 form))

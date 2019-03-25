@@ -11,6 +11,11 @@
    (equal
     (elisp-index--walk-calls
      '(foo))
+    (list 'foo)))
+  (should
+   (equal
+    (elisp-index--walk-calls
+     '(foo bar baz))
     (list 'foo))))
 
 (ert-deftest elisp-index--walk-calls--nested-calls ()
@@ -34,3 +39,17 @@
      (macroexpand-all
       '(defun foo (x) (bar x))))
     (list 'bar))))
+
+(ert-deftest elisp-index--walk-calls--while ()
+  (should
+   (equal
+    (elisp-index--walk-calls
+     '(while t (foo)))
+    (list 'foo))))
+
+(ert-deftest elisp-index--walk-calls--if ()
+  (should
+   (equal
+    (elisp-index--walk-calls
+     '(if t (foo)))
+    (list 'foo))))
