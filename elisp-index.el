@@ -160,6 +160,9 @@ Ignore function calls that are only introduced by macros."
   (let* ((expanded (macroexpand-all form))
          (fun-syms (elisp-index--walk-calls expanded)))
     ;; All the function symbols that occurred in the source.
+    ;; TODO: this is confused by
+    ;; (condition-case nil nil (error (error "F")))
+    ;; and thinks there are two calls to error.
     (--filter
      (memq it src-syms)
      fun-syms)))
