@@ -116,6 +116,19 @@
    ((eq (car form) 'defalias)
     (elisp-index--walk-calls (nth 2 form)))
 
+   ((eq (car form) 'condition-case)
+    (let* ((body (nth 2 form))
+           (clauses (cdddr form))
+           (syms (elisp-index--walk-calls body)))
+      (-each clauses
+        (-lambda ((_signal . body))
+          (setq syms
+                (append syms
+                        (--mapcat
+                         (elisp-index--walk-calls it)
+                         body)))))
+      syms))
+
    ((or (eq (car form) 'let)
         (eq (car form) 'let*))
     (let ((head (nth 1 form))

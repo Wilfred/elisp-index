@@ -53,3 +53,13 @@
     (elisp-index--walk-calls
      '(if t (foo)))
     (list 'foo))))
+
+(ert-deftest elisp-index--walk-calls--condition-case ()
+  (should
+   (equal
+    (elisp-index--walk-calls
+     '(condition-case err
+          (foo)
+        (error (bar))
+        (other-signal some-var)))
+    (list 'foo 'bar))))
