@@ -45,15 +45,18 @@
                    (fun-syms
                     (elisp-index--fun-calls form form-syms)))
               (-each read-symbol-positions-list
-                (-lambda ((sym . pos))
-                  (when (memq sym fun-syms)
-                    (push
-                     (ht
-                      ("name" (symbol-name sym))
-                      ;; TODO: fix the other positions for
-                      ;; symbols/definitions.
-                      ("position" (+ pos start-pos)))
-                     syms))))))
+                (-lambda ((sym . offset))
+                  (let* ((start-pos (+ start-pos offset))
+                         (end-pos (+ start-pos (length (symbol-name sym)))))
+                    (when (memq sym fun-syms)
+                      (push
+                       (ht
+                        ("name" (symbol-name sym))
+                        ;; TODO: fix the other positions for
+                        ;; symbols/definitions.
+                        ("start" start-pos)
+                        ("end" end-pos))
+                       syms)))))))
         (error
          (if (equal (car err) 'end-of-file)
              (nreverse syms)
@@ -169,10 +172,13 @@ Ignore function calls that are only introduced by macros."
           (while t
             (let* ((form (read buf))
                    (start-pos (scan-sexps (point) -1))
-                   (fun-sym (elisp-index--function-def-p form)))
+                   (fun-sym (elisp-index--function-def-p form))
+                   (end-pos (+ start-pos (length (symbol-name fun-sym)))))
               (when fun-sym
                 (push
-                 (ht ("name" (symbol-name fun-sym)) ("position" start-pos))
+                 (ht ("name" (symbol-name fun-sym))
+                     ("start" start-pos)
+                     ("end" end-pos))
                  funs))))
         (error
          (if (equal (car err) 'end-of-file)
@@ -183,9 +189,10 @@ Ignore function calls that are only introduced by macros."
 
 (defun elisp-index--encode (path)
   (let* ((buf (find-file-noselect path))
-         (json-encoding-pretty-print t))
+         (json-encoding-pretty-print t)
+         (src (with-current-buffer buf (buffer-string))))
     (json-encode
-     (ht ("symbols" (elisp-index--symbols buf))
+     (ht ("source" src)
          ("functions" (elisp-index--functions buf))
          ("calls" (elisp-index--called-functions buf))))))
 
