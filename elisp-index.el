@@ -100,9 +100,7 @@
     nil)
    ((or (eq (car form) 'while)
         (eq (car form) 'if))
-    (--mapcat
-     (elisp-index--walk-calls it)
-     (cdr form)))
+    (elisp-index--walk-calls-body (cdr form)))
    ((eq (car form) 'function)
     (if (symbolp (cadr form))
         ;; For #'foo, assume it's a call.
@@ -110,44 +108,36 @@
       ;; For #'(lambda ...), just proceed.
       (elisp-index--walk-calls (cadr form))))
    ((eq (car form) 'lambda)
-    (--mapcat
-     (elisp-index--walk-calls it)
-     (cddr form)))
+    (elisp-index--walk-calls-body (cddr form)))
    ((eq (car form) 'defalias)
     (elisp-index--walk-calls (nth 2 form)))
 
    ((eq (car form) 'cond)
-    (let* ((clauses (cdr form))
-           (syms nil))
-      (--each clauses
-        (setq syms
-              (append syms
-                      (elisp-index--walk-calls-body it))))
-      syms))
+    (let* ((clauses (cdr form)))
+      (--mapcat
+       (elisp-index--walk-calls-body it)
+       clauses)))
+
    ((eq (car form) 'condition-case)
     (let* ((body (nth 2 form))
-           (clauses (cdddr form))
-           (syms (elisp-index--walk-calls body)))
-      (-each clauses
-        (-lambda ((_signal . body))
-          (setq syms
-                (append syms
-                        (elisp-index--walk-calls-body body)))))
-      syms))
+           (clauses (cdddr form)))
+      (append
+       (elisp-index--walk-calls body)
+       (--mapcat
+        (elisp-index--walk-calls-body (cdr it))
+        clauses))))
 
    ((or (eq (car form) 'let)
         (eq (car form) 'let*))
     (let ((head (nth 1 form))
-          (body (cddr form))
-          calls)
-      (dolist (var-val head)
-        (when (and (consp var-val)
-                   (cdr var-val))
-          (setq calls
-                (append calls
-                        (elisp-index--walk-calls-body (cdr var-val))))))
-      (append calls
-              (elisp-index--walk-calls-body body))))
+          (body (cddr form)))
+      (append
+       (--mapcat
+        (when (consp it)
+          (elisp-index--walk-calls-body (cdr it)))
+        head)
+       (elisp-index--walk-calls-body body))))
+   
    (t
     (cons
      (car form)
