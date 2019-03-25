@@ -63,3 +63,12 @@
         (error (bar))
         (other-signal some-var)))
     (list 'foo 'bar))))
+
+(ert-deftest elisp-index--walk-calls--cond ()
+  (should
+   (equal
+    (elisp-index--walk-calls
+     '(cond
+       ((foo) (bar))
+       (t (baz) (biz))))
+    (list 'foo 'bar 'baz 'biz))))

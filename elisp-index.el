@@ -116,6 +116,14 @@
    ((eq (car form) 'defalias)
     (elisp-index--walk-calls (nth 2 form)))
 
+   ((eq (car form) 'cond)
+    (let* ((clauses (cdr form))
+           (syms nil))
+      (--each clauses
+        (setq syms
+              (append syms
+                      (elisp-index--walk-calls-body it))))
+      syms))
    ((eq (car form) 'condition-case)
     (let* ((body (nth 2 form))
            (clauses (cdddr form))
@@ -124,9 +132,7 @@
         (-lambda ((_signal . body))
           (setq syms
                 (append syms
-                        (--mapcat
-                         (elisp-index--walk-calls it)
-                         body)))))
+                        (elisp-index--walk-calls-body body)))))
       syms))
 
    ((or (eq (car form) 'let)
@@ -139,20 +145,17 @@
                    (cdr var-val))
           (setq calls
                 (append calls
-                        (--mapcat
-                         (elisp-index--walk-calls it)
-                         (cdr var-val))))))
+                        (elisp-index--walk-calls-body (cdr var-val))))))
       (append calls
-              (--mapcat
-               (elisp-index--walk-calls it)
-               body))))
+              (elisp-index--walk-calls-body body))))
    (t
     (cons
      (car form)
      (when (consp (cdr form))
-       (--mapcat
-        (elisp-index--walk-calls it)
-        (cdr form)))))))
+       (elisp-index--walk-calls-body (cdr form)))))))
+
+(defun elisp-index--walk-calls-body (body)
+  (--mapcat (elisp-index--walk-calls it) body))
 
 (defun elisp-index--fun-calls (form src-syms)
   "Return a list of all the functions called in FORM.
