@@ -31,6 +31,34 @@
 (require 'json)
 (require 'ht)
 
+(defun elisp-index--called-functions (buf)
+  (let ((read-with-symbol-positions t)
+        syms)
+    (with-current-buffer buf
+      (goto-char (point-min))
+      (condition-case err
+          (while t
+            (let* ((start-pos (point))
+                   (form (read buf))
+                   (form-syms
+                    (-map #'car read-symbol-positions-list))
+                   (fun-syms
+                    (elisp-index--fun-calls form form-syms)))
+              (-each read-symbol-positions-list
+                (-lambda ((sym . pos))
+                  (when (memq sym fun-syms)
+                    (push
+                     (ht
+                      ("name" (symbol-name sym))
+                      ("position" (+ pos start-pos)))
+                     syms))))))
+        (error
+         (if (equal (car err) 'end-of-file)
+             (nreverse syms)
+           ;; Some unexpected error, propagate.
+           (error "Unexpected error whilst reading %s position %s: %s"
+                  (buffer-file-name) (point) err)))))))
+
 (defun elisp-index--symbols (buf)
   (let ((read-with-symbol-positions t)
         syms)
@@ -108,7 +136,12 @@
 (defun elisp-index--fun-calls (form src-syms)
   "Return a list of all the functions called in FORM.
 Ignore function calls that are only introduced by macros."
-  (let ((expanded (macroexpand-all form)))))
+  (let* ((expanded (macroexpand-all form))
+         (fun-syms (elisp-index--walk-calls expanded)))
+    ;; All the function symbols that occurred in the source.
+    (--filter
+     (memq it src-syms)
+     fun-syms)))
 
 (defun elisp-index--functions (buf)
   (let ((read-with-symbol-positions t)
@@ -136,16 +169,14 @@ Ignore function calls that are only introduced by macros."
          (json-encoding-pretty-print t))
     (json-encode
      (ht ("symbols" (elisp-index--symbols buf))
-         ("functions" (elisp-index--functions buf))))))
+         ("functions" (elisp-index--functions buf))
+         ("calls" (elisp-index--called-functions buf))))))
 
 (defun elisp-index--write (path dest-dir)
   "Read the elisp at PATH, and write a copy of the file and JSON
 summary to DEST-DIR."
   (let* ((filename (f-filename path))
-         (json-filename (format "%s.json" (f-no-ext filename)))
-         (buf (find-file-noselect path))
-         (src (with-current-buffer buf (buffer-string)))
-         )
+         (json-filename (format "%s.json" (f-no-ext filename))))
     (f-write
      (elisp-index--encode path)
      'utf-8
