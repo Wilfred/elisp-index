@@ -68,6 +68,35 @@
     nil)
    ((eq (car form) 'quote)
     nil)
+   ((eq (car form) 'function)
+    (if (symbolp (cadr form))
+        ;; For #'foo, assume it's a call.
+        (cdr form)
+      ;; For #'(lambda ...), just proceed.
+      (elisp-index--walk-calls (cadr form))))
+   ((eq (car form) 'lambda)
+    (--mapcat
+     (elisp-index--walk-calls it)
+     (cddr form)))
+   ((eq (car form) 'defalias)
+    (elisp-index--walk-calls (nth 2 form)))
+   ((or (eq (car form) 'let)
+        (eq (car form) 'let*))
+    (let ((head (nth 1 form))
+          (body (cddr form))
+          calls)
+      (dolist (var-val head)
+        (when (and (consp var-val)
+                   (cdr var-val))
+          (setq calls
+                (append calls
+                        (--mapcat
+                         (elisp-index--walk-calls it)
+                         (cdr var-val))))))
+      (append calls
+              (--mapcat
+               (elisp-index--walk-calls it)
+               body))))
    (t
     (cons
      (car form)

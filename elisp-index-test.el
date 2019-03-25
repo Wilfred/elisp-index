@@ -19,3 +19,18 @@
     (elisp-index--walk-calls
      '(foo (bar)))
     (list 'foo 'bar))))
+
+(ert-deftest elisp-index--walk-calls--let ()
+  (should
+   (equal
+    (elisp-index--walk-calls
+     '(let (sym1 (sym2) (sym3 (foo))) (bar sym1)))
+    (list 'foo 'bar))))
+
+(ert-deftest elisp-index--walk-calls--defun ()
+  (should
+   (equal
+    (elisp-index--walk-calls
+     (macroexpand-all
+      '(defun foo (x) (bar x))))
+    (list 'bar))))
