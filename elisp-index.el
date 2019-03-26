@@ -52,10 +52,9 @@
                       (push
                        (ht
                         ("name" (symbol-name sym))
-                        ;; TODO: fix the other positions for
-                        ;; symbols/definitions.
-                        ("start" start-pos)
-                        ("end" end-pos))
+                        ;; Subtract 1 because emacs positions are 1-indexed.
+                        ("start" (1- start-pos))
+                        ("end" (1- end-pos)))
                        syms)))))))
         (error
          (if (equal (car err) 'end-of-file)
@@ -177,8 +176,8 @@ Ignore function calls that are only introduced by macros."
               (when fun-sym
                 (push
                  (ht ("name" (symbol-name fun-sym))
-                     ("start" start-pos)
-                     ("end" end-pos))
+                     ("start" (1- start-pos))
+                     ("end" (1- end-pos)))
                  funs))))
         (error
          (if (equal (car err) 'end-of-file)
