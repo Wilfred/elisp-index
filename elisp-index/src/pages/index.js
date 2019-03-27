@@ -6,10 +6,16 @@ import LinkedCode from "../components/linkedcode";
 import SEO from "../components/seo";
 
 const IndexPage = ({ data }) => {
+  let fileLinks = data.allLispJson.edges.map(e => (
+    <li>
+      <a href="#">{e.node.name}</a>
+    </li>
+  ));
+
   return (
     <Layout>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-      <LinkedCode source={data.dataJson.source} calls={data.dataJson.calls} />
+      <ul>{fileLinks}</ul>
     </Layout>
   );
 };
@@ -18,12 +24,11 @@ export default IndexPage;
 
 export const query = graphql`
   {
-    dataJson {
-      source
-      calls {
-        start
-        end
-        name
+    allLispJson {
+      edges {
+        node {
+          name
+        }
       }
     }
   }
