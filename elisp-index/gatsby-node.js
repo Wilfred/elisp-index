@@ -25,7 +25,10 @@ exports.createPages = ({ graphql, actions }) => {
       const name = edge.node.name;
       createPage({
         path: `file/${name}`,
-        component: postTemplate
+        component: postTemplate,
+        context: {
+          name: name
+        }
       });
     });
   });
