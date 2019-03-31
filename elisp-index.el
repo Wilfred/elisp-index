@@ -191,9 +191,11 @@ Ignore function calls that are only introduced by macros."
          (json-encoding-pretty-print t)
          (src (with-current-buffer buf (buffer-string))))
     (json-encode
-     (ht ("source" src)
-         ("functions" (elisp-index--functions buf))
-         ("calls" (elisp-index--called-functions buf))))))
+     (ht
+      ("name" (f-filename path))
+      ("source" src)
+      ("functions" (elisp-index--functions buf))
+      ("calls" (elisp-index--called-functions buf))))))
 
 (defun elisp-index--write (path dest-dir)
   "Read the elisp at PATH, and write a copy of the file and JSON
