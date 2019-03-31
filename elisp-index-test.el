@@ -72,3 +72,18 @@
        ((foo) (bar))
        (t (baz) (biz))))
     (list 'foo 'bar 'baz 'biz))))
+
+(ert-deftest elisp-index--definitions-fun ()
+  (should
+   (equal
+    (elisp-index--definitions-in
+     (macroexpand-all '(defun foo () 1)))
+    (list 'foo))))
+
+(ert-deftest elisp-index--definitions-major-mode ()
+  (should
+   (equal
+    (elisp-index--definitions-in
+     (macroexpand-all
+      '(define-derived-mode foo-mode prog-mode "Foo")))
+    (list 'foo-mode))))

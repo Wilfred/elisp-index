@@ -162,6 +162,22 @@ Ignore function calls that are only introduced by macros."
      (memq it src-syms)
      fun-syms)))
 
+(defun elisp-index--definitions-in (form)
+  "Return a list of all the functions defined in FORM.
+Assumes FORM has been fully macro expanded."
+  (cond
+   ((not (consp form))
+    nil)
+   ((eq (car form) 'quote)
+    nil)
+   ((eq (car form) 'defalias)
+    (let* ((quoted-sym (nth 1 form))
+           (def (nth 2 form))
+           (sym (nth 1 quoted-sym)))
+      (cons sym (elisp-index--definitions-in def))))
+   ((consp (cdr form))
+    (--mapcat (elisp-index--definitions-in it) (cdr form)))))
+
 (defun elisp-index--functions (buf)
   (let ((read-with-symbol-positions t)
         funs)
