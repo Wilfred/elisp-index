@@ -1,4 +1,5 @@
 (require 'ert)
+(require 'elisp-index)
 
 (ert-deftest elisp-index--walk-calls--quote ()
   (should
