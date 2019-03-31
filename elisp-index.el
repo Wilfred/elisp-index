@@ -83,17 +83,6 @@
            (error "Unexpected error whilst reading %s position %s: %s"
                   (buffer-file-name) (point) err)))))))
 
-(defun elisp-index--function-def-p (form)
-  ;; TODO: return a list of all the functions defined in this form.
-  (let* ((expanded (macroexpand-all form))
-         (head-sym (car-safe expanded))
-         (fun-name (car-safe (cdr-safe expanded)))
-         (body (car-safe (cdr-safe (cdr-safe expanded)))))
-    (when
-        (and (eq head-sym 'defalias)
-             (eq (car-safe body) 'function))
-      (nth 1 fun-name))))
-
 (defun elisp-index--walk-calls (form)
   (cond
    ((not (consp form))
@@ -179,6 +168,7 @@ Assumes FORM has been fully macro expanded."
     (--mapcat (elisp-index--definitions-in it) (cdr form)))))
 
 (defun elisp-index--functions (buf)
+  "Return a hashmap of all the functions defined in BUF."
   (let ((read-with-symbol-positions t)
         funs)
     (with-current-buffer buf
@@ -186,12 +176,12 @@ Assumes FORM has been fully macro expanded."
       (condition-case err
           (while t
             (let* ((form (read buf))
+                   (end-pos (point))
                    (start-pos (scan-sexps (point) -1))
-                   (fun-sym (elisp-index--function-def-p form))
-                   (end-pos (+ start-pos (length (symbol-name fun-sym)))))
-              (when fun-sym
+                   )
+              (--each (elisp-index--definitions-in (macroexpand-all form))
                 (push
-                 (ht ("name" (symbol-name fun-sym))
+                 (ht ("name" (symbol-name it))
                      ("start" (1- start-pos))
                      ("end" (1- end-pos)))
                  funs))))
