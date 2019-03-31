@@ -27,7 +27,7 @@ export default IndexPage;
 
 export const query = graphql`
   {
-    allLispJson {
+    allLispJson(sort: { fields: name }) {
       edges {
         node {
           name
