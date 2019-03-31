@@ -31,37 +31,56 @@
 (require 'json)
 (require 'ht)
 
-(defun elisp-index--called-functions (buf)
-  (let ((read-with-symbol-positions t)
-        syms)
+(defun elisp-index--mapcat-forms (buf callback)
+  "Read every form in BUF and execute CALLBACK.
+
+CALLBACK receives the form, its start position, and its end
+position as arguments. `read-symbol-positions-list' is also set
+during the execution of CALLBACK.
+
+CALLBACK should return a list, and the results are concatenated
+into a single list."
+  (let ((result))
     (with-current-buffer buf
       (goto-char (point-min))
       (condition-case err
           (while t
-            (let* ((start-pos (point))
+            (let* ((read-with-symbol-positions t)
                    (form (read buf))
-                   (form-syms
-                    (-map #'car read-symbol-positions-list))
-                   (fun-syms
-                    (elisp-index--fun-calls form form-syms)))
-              (-each read-symbol-positions-list
-                (-lambda ((sym . offset))
-                  (let* ((start-pos (+ start-pos offset))
-                         (end-pos (+ start-pos (length (symbol-name sym)))))
-                    (when (memq sym fun-syms)
-                      (push
-                       (ht
-                        ("name" (symbol-name sym))
-                        ;; Subtract 1 because emacs positions are 1-indexed.
-                        ("start" (1- start-pos))
-                        ("end" (1- end-pos)))
-                       syms)))))))
+                   (end-pos (point))
+                   (start-pos (scan-sexps (point) -1)))
+              (push
+               (funcall callback form start-pos end-pos)
+               result)))
         (error
-         (if (equal (car err) 'end-of-file)
-             (nreverse syms)
+         (unless (equal (car err) 'end-of-file)
            ;; Some unexpected error, propagate.
            (error "Unexpected error whilst reading %s position %s: %s"
-                  (buffer-file-name) (point) err)))))))
+                  (buffer-file-name) (point) err))))
+      (apply #'append (nreverse result)))))
+
+(defun elisp-index--function-calls-in (form form-start _form-end)
+  (let* ((src-syms
+          (-map #'car read-symbol-positions-list))
+         (fun-syms
+          (elisp-index--fun-calls form src-syms))
+         syms)
+    (-each read-symbol-positions-list
+      (-lambda ((sym . offset))
+        (let* ((start-pos (+ form-start offset))
+               (end-pos (+ start-pos (length (symbol-name sym)))))
+          (when (memq sym fun-syms)
+            (push
+             (ht
+              ("name" (symbol-name sym))
+              ;; Subtract 1 because emacs positions are 1-indexed.
+              ("start" (1- start-pos))
+              ("end" (1- end-pos)))
+             syms)))))
+    (nreverse syms)))
+
+(defun elisp-index--called-functions (buf)
+  (elisp-index--all-forms buf #'elisp-index--function-calls-in))
 
 (defun elisp-index--symbols (buf)
   (let ((read-with-symbol-positions t)
