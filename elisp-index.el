@@ -138,6 +138,25 @@
 (defun elisp-index--walk-calls-body (body)
   (--mapcat (elisp-index--walk-calls it) body))
 
+(defun elisp-index--called-macros (form)
+  "Return a list of all the macros used in FORM."
+  ;; Approximate the macro expansion that Emacs itself does. Emacs'
+  ;; implementation works by `macroexp--expand-all' and
+  ;; `macroexp--all-forms' calling each other.
+  (when (consp form)
+    ;; Perform one step of macro expansion.
+    (let* ((expanded (macroexpand-1 form))
+           ;; If we aren't quoted, expand any macro calls in the body.
+           (rest
+            (unless (eq (car expanded) 'quote)
+              (--mapcat (elisp-index--called-macros it) (cdr form)))))
+      (if (equal form expanded)
+          ;; If we didn't expand anything at the top-level, the car
+          ;; wasn't a macro.
+          rest
+        ;; The car was a macro, so add it to the list of found macros.
+        (cons (car form) rest)))))
+
 (defun elisp-index--fun-calls (form src-syms)
   "Return a list of all the functions called in FORM.
 Ignore function calls that are only introduced by macros."

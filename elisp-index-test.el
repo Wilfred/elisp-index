@@ -87,3 +87,17 @@
      (macroexpand-all
       '(define-derived-mode foo-mode prog-mode "Foo")))
     (list 'foo-mode))))
+
+(ert-deftest elisp-index--called-macros ()
+  (should
+   (equal
+    (elisp-index--called-macros
+     '(defun foo () (when t (bar))))
+    (list 'defun 'when))))
+
+(ert-deftest elisp-index--called-macros-quote ()
+  (should
+   (equal
+    (elisp-index--called-macros
+     ''(defun foo () (when t (bar))))
+    nil)))
