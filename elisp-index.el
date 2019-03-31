@@ -59,17 +59,23 @@ into a single list."
                   (buffer-file-name) (point) err))))
       (apply #'append (nreverse result)))))
 
-(defun elisp-index--function-calls-in (form form-start _form-end)
-  (let* ((src-syms
-          (-map #'car read-symbol-positions-list))
-         (fun-syms
-          (elisp-index--fun-calls form src-syms))
-         syms)
+;; TODO: this is confused by
+;; (condition-case nil nil (error (error "F")))
+;; and thinks there are two calls to error.
+(defun elisp-index--fn-calls-positions (form form-start _form-end)
+  "Return all the function calls in FORM: symbol names and positions.
+
+Function symbols that do not occur before macro expansion are ignored."
+  (let ((fun-syms
+         (elisp-index--walk-calls (macroexpand-all form)))
+        syms)
+    ;; For every symbol that occurred in the source code:
     (-each read-symbol-positions-list
       (-lambda ((sym . offset))
-        (let* ((start-pos (+ form-start offset))
-               (end-pos (+ start-pos (length (symbol-name sym)))))
-          (when (memq sym fun-syms)
+        ;; If it occurred as a function call.
+        (when (memq sym fun-syms)
+          (let* ((start-pos (+ form-start offset))
+                 (end-pos (+ start-pos (length (symbol-name sym)))))
             (push
              (ht
               ("name" (symbol-name sym))
@@ -80,7 +86,7 @@ into a single list."
     (nreverse syms)))
 
 (defun elisp-index--called-functions (buf)
-  (elisp-index--all-forms buf #'elisp-index--function-calls-in))
+  (elisp-index--mapcat-forms buf #'elisp-index--fn-calls-positions))
 
 (defun elisp-index--symbols (buf)
   (let ((read-with-symbol-positions t)
@@ -175,19 +181,6 @@ into a single list."
           rest
         ;; The car was a macro, so add it to the list of found macros.
         (cons (car form) rest)))))
-
-(defun elisp-index--fun-calls (form src-syms)
-  "Return a list of all the functions called in FORM.
-Ignore function calls that are only introduced by macros."
-  (let* ((expanded (macroexpand-all form))
-         (fun-syms (elisp-index--walk-calls expanded)))
-    ;; All the function symbols that occurred in the source.
-    ;; TODO: this is confused by
-    ;; (condition-case nil nil (error (error "F")))
-    ;; and thinks there are two calls to error.
-    (--filter
-     (memq it src-syms)
-     fun-syms)))
 
 (defun elisp-index--definitions-in (form)
   "Return a list of all the functions defined in FORM.
