@@ -1,17 +1,24 @@
 import PropTypes from "prop-types";
 import React from "react";
 
-const LinkedCode = ({ source, calls }) => {
+const LinkedCode = ({ source, calls, fnNameToFile }) => {
   let parts = [];
   let i = 0;
   calls.forEach(call => {
     if (call.start > i) {
       parts.push(source.substring(i, call.start));
     }
-    let url = "#" + call.name;
-    let key = call.name + call.start;
+
+    let url = "#";
+    let className = "has-text-danger";
+    if (fnNameToFile[call.name]) {
+      url = "/file/" + fnNameToFile[call.name];
+      className = "";
+    }
+
+    // TODO: use a proper Link component.
     parts.push(
-      <a className="call" key={key} href={url}>
+      <a className={className} key={call.name + call.start} href={url}>
         {call.name}
       </a>
     );

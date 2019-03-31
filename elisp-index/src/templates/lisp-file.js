@@ -5,12 +5,16 @@ import Layout from "../components/layout";
 import LinkedCode from "../components/linkedcode";
 import SEO from "../components/seo";
 
-const LispFile = ({ data }) => {
+const LispFile = ({ data, pageContext }) => {
   return (
     <Layout>
       <SEO title={data.lispJson.name} />
       <h1 className="title">{data.lispJson.name}</h1>
-      <LinkedCode source={data.lispJson.source} calls={data.lispJson.calls} />
+      <LinkedCode
+        source={data.lispJson.source}
+        calls={data.lispJson.calls}
+        fnNameToFile={pageContext.funNameToFile}
+      />
     </Layout>
   );
 };

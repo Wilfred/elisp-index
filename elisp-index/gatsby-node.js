@@ -10,6 +10,9 @@ exports.createPages = ({ graphql, actions }) => {
           edges {
             node {
               name
+              functions {
+                name
+              }
             }
           }
         }
@@ -20,14 +23,24 @@ exports.createPages = ({ graphql, actions }) => {
       throw result.errors;
     }
 
+    const files = result.data.allLispJson.edges.map(e => e.node);
+    const fileNames = files.map(f => f.name);
+    let funNameToFile = {};
+    files.forEach(file => {
+      file.functions.forEach(fun => {
+        funNameToFile[fun.name] = file.name;
+      });
+    });
+
     const postTemplate = path.resolve(`src/templates/lisp-file.js`);
-    result.data.allLispJson.edges.map(edge => {
-      const name = edge.node.name;
+    files.map(f => {
+      const name = f.name;
       createPage({
         path: `file/${name}`,
         component: postTemplate,
         context: {
-          name: name
+          name: name,
+          funNameToFile: funNameToFile
         }
       });
     });
