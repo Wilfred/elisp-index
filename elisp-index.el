@@ -91,6 +91,9 @@ Function symbols that do not occur before macro expansion are ignored."
 (defun elisp-index--called-functions (buf)
   (elisp-index--mapcat-forms buf #'elisp-index--fn-calls-positions))
 
+(defun elisp-index--called-macros (buf)
+  (elisp-index--mapcat-forms buf #'elisp-index--mac-calls-positions))
+
 (defun elisp-index--symbols (buf)
   (let ((read-with-symbol-positions t)
         syms)
@@ -166,7 +169,30 @@ Function symbols that do not occur before macro expansion are ignored."
 (defun elisp-index--walk-calls-body (body)
   (--mapcat (elisp-index--walk-calls it) body))
 
-(defun elisp-index--called-macros (form)
+(defun elisp-index--mac-calls-positions (form region-start _region-end)
+  "Return all the function calls in FORM: symbol names and positions.
+
+Not namespace aware, so will erroneously report variables as
+macro calls."
+  (let ((macro-syms (elisp-index--called-macros-in form))
+        syms)
+    ;; For every symbol that occurred in the source code:
+    (-each read-symbol-positions-list
+      (-lambda ((sym . offset))
+        ;; If it occurred as a macro call.
+        (when (memq sym macro-syms)
+          (let* ((start-pos (+ region-start offset))
+                 (end-pos (+ start-pos (length (symbol-name sym)))))
+            (push
+             (ht
+              ("name" (symbol-name sym))
+              ;; Subtract 1 because emacs positions are 1-indexed.
+              ("start" (1- start-pos))
+              ("end" (1- end-pos)))
+             syms)))))
+    (nreverse syms)))
+
+(defun elisp-index--called-macros-in (form)
   "Return a list of all the macros used in FORM."
   ;; Approximate the macro expansion that Emacs itself does. Emacs'
   ;; implementation works by `macroexp--expand-all' and
@@ -176,8 +202,10 @@ Function symbols that do not occur before macro expansion are ignored."
     (let* ((expanded (macroexpand-1 form))
            ;; If we aren't quoted, expand any macro calls in the body.
            (rest
-            (unless (eq (car expanded) 'quote)
-              (--mapcat (elisp-index--called-macros it) (cdr form)))))
+            (when (and (consp expanded)
+                       (consp (cdr expanded))
+                       (not (eq (car expanded) 'quote)))
+              (--mapcat (elisp-index--called-macros-in it) (cdr form)))))
       (if (equal form expanded)
           ;; If we didn't expand anything at the top-level, the car
           ;; wasn't a macro.
@@ -235,7 +263,8 @@ Assumes FORM has been fully macro expanded."
       ("name" (f-filename path))
       ("source" src)
       ("functions" (elisp-index--functions buf))
-      ("calls" (elisp-index--called-functions buf))))))
+      ("calls" (elisp-index--called-functions buf))
+      ("macro_calls" (elisp-index--called-macros buf))))))
 
 (defun elisp-index--write (path dest-dir)
   "Read the elisp at PATH, and write a copy of the file and JSON

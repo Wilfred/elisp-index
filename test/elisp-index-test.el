@@ -89,16 +89,39 @@
       '(define-derived-mode foo-mode prog-mode "Foo")))
     (list 'foo-mode))))
 
-(ert-deftest elisp-index--called-macros ()
+(ert-deftest elisp-index--called-macros-in ()
   (should
    (equal
-    (elisp-index--called-macros
+    (elisp-index--called-macros-in
      '(defun foo () (when t (bar))))
     (list 'defun 'when))))
 
 (ert-deftest elisp-index--called-macros-quote ()
   (should
    (equal
-    (elisp-index--called-macros
+    (elisp-index--called-macros-in
      ''(defun foo () (when t (bar))))
     nil)))
+
+(ert-deftest elisp-index--called-macros-rx ()
+  "Ensure we handle macros that expand to non-lists."
+  (should
+   (equal
+    (elisp-index--called-macros-in
+     '(rx "foo"))
+    (list 'rx))))
+
+(ert-deftest elisp-index--called-macros-backquote ()
+  (should
+   (equal
+    (elisp-index--called-macros-in
+     '`(foo ,(concat "foo" "bar")))
+    (list '\`))))
+
+(ert-deftest elisp-index--called-macros-dotted-list ()
+  "Regression test for dotted lists."
+  (should
+   (equal
+    (elisp-index--called-macros-in
+     '(foo (\` ((\, "bar") ((\, "exit") . baz)))))
+    (list '\`))))
