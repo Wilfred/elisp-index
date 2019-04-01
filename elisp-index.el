@@ -34,8 +34,8 @@
 (defun elisp-index--mapcat-forms (buf callback)
   "Read every form in BUF and execute CALLBACK.
 
-CALLBACK receives the form, its start position, and its end
-position as arguments. `read-symbol-positions-list' is also set
+CALLBACK receives the form, and the start/end of the region that
+contains the form. `read-symbol-positions-list' is also set
 during the execution of CALLBACK.
 
 CALLBACK should return a list, and the results are concatenated
@@ -46,9 +46,12 @@ into a single list."
       (condition-case err
           (while t
             (let* ((read-with-symbol-positions t)
+                   ;; Note that this is not the start of the form,
+                   ;; because point may be before the form if there is
+                   ;; preceding whitespace/comments.
+                   (start-pos (point))
                    (form (read buf))
-                   (end-pos (point))
-                   (start-pos (scan-sexps (point) -1)))
+                   (end-pos (point)))
               (push
                (funcall callback form start-pos end-pos)
                result)))
@@ -62,7 +65,7 @@ into a single list."
 ;; TODO: this is confused by
 ;; (condition-case nil nil (error (error "F")))
 ;; and thinks there are two calls to error.
-(defun elisp-index--fn-calls-positions (form form-start _form-end)
+(defun elisp-index--fn-calls-positions (form region-start _region-end)
   "Return all the function calls in FORM: symbol names and positions.
 
 Function symbols that do not occur before macro expansion are ignored."
@@ -74,7 +77,7 @@ Function symbols that do not occur before macro expansion are ignored."
       (-lambda ((sym . offset))
         ;; If it occurred as a function call.
         (when (memq sym fun-syms)
-          (let* ((start-pos (+ form-start offset))
+          (let* ((start-pos (+ region-start offset))
                  (end-pos (+ start-pos (length (symbol-name sym)))))
             (push
              (ht
