@@ -12,7 +12,7 @@ const LispFile = ({ data, pageContext }) => {
       <h1 className="title">{data.lispJson.name}</h1>
       <LinkedCode
         source={data.lispJson.source}
-        calls={data.lispJson.calls}
+        calls={data.lispJson.function_calls}
         fnNameToFile={pageContext.funNameToFile}
       />
     </Layout>
@@ -26,7 +26,7 @@ export const query = graphql`
     lispJson(name: { eq: $name }) {
       name
       source
-      calls {
+      function_calls {
         start
         end
         name

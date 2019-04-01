@@ -263,7 +263,7 @@ Assumes FORM has been fully macro expanded."
       ("name" (f-filename path))
       ("source" src)
       ("functions" (elisp-index--functions buf))
-      ("calls" (elisp-index--called-functions buf))
+      ("function_calls" (elisp-index--called-functions buf))
       ("macro_calls" (elisp-index--called-macros buf))))))
 
 (defun elisp-index--write (path dest-dir)
