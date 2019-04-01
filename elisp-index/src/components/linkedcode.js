@@ -11,7 +11,9 @@ const LinkedCode = ({ source, calls, fnNameToFile }) => {
 
     let url = "#";
     let className = "has-text-danger";
-    if (fnNameToFile[call.name]) {
+    if (call.namespace == "macro") {
+      className = "has-text-success";
+    } else if (fnNameToFile[call.name]) {
       url = "/file/" + fnNameToFile[call.name];
       className = "";
     }

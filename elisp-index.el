@@ -88,11 +88,23 @@ Function symbols that do not occur before macro expansion are ignored."
              syms)))))
     (nreverse syms)))
 
-(defun elisp-index--called-functions (buf)
-  (elisp-index--mapcat-forms buf #'elisp-index--fn-calls-positions))
-
-(defun elisp-index--called-macros (buf)
-  (elisp-index--mapcat-forms buf #'elisp-index--mac-calls-positions))
+(defun elisp-index--calls (buf)
+  (let ((fn-calls
+         (elisp-index--mapcat-forms
+          buf
+          #'elisp-index--fn-calls-positions))
+        (mac-calls
+         (elisp-index--mapcat-forms
+          buf
+          #'elisp-index--mac-calls-positions)))
+    (--each fn-calls
+      (ht-set it "namespace" "function"))
+    (--each mac-calls
+      (ht-set it "namespace" "macro"))
+    (--sort
+     (< (ht-get it "start")
+        (ht-get other "start"))
+     (append fn-calls mac-calls))))
 
 (defun elisp-index--symbols (buf)
   (let ((read-with-symbol-positions t)
@@ -263,8 +275,7 @@ Assumes FORM has been fully macro expanded."
       ("name" (f-filename path))
       ("source" src)
       ("functions" (elisp-index--functions buf))
-      ("function_calls" (elisp-index--called-functions buf))
-      ("macro_calls" (elisp-index--called-macros buf))))))
+      ("calls" (elisp-index--calls buf))))))
 
 (defun elisp-index--write (path dest-dir)
   "Read the elisp at PATH, and write a copy of the file and JSON

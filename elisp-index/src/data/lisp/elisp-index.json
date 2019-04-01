@@ -1,1110 +1,1407 @@
 {
-  "macro_calls": [
+  "calls": [
     {
-      "end": 1043,
-      "start": 1038,
-      "name": "defun"
-    },
-    {
-      "end": 1421,
-      "start": 1402,
-      "name": "with-current-buffer"
-    },
-    {
-      "end": 1875,
-      "start": 1871,
-      "name": "push"
-    },
-    {
-      "end": 1989,
-      "start": 1983,
-      "name": "unless"
-    },
-    {
-      "end": 2365,
-      "start": 2360,
-      "name": "defun"
-    },
-    {
-      "end": 2774,
-      "start": 2767,
-      "name": "-lambda"
-    },
-    {
-      "end": 2851,
-      "start": 2847,
-      "name": "when"
-    },
-    {
-      "end": 3011,
-      "start": 3007,
-      "name": "push"
-    },
-    {
-      "end": 3028,
-      "start": 3026,
-      "name": "ht"
-    },
-    {
-      "end": 3264,
-      "start": 3259,
-      "name": "defun"
-    },
-    {
-      "end": 3377,
-      "start": 3372,
-      "name": "defun"
-    },
-    {
-      "end": 3488,
-      "start": 3483,
-      "name": "defun"
-    },
-    {
-      "end": 3593,
-      "start": 3574,
-      "name": "with-current-buffer"
-    },
-    {
-      "end": 3764,
-      "start": 3757,
-      "name": "-lambda"
-    },
-    {
-      "end": 3800,
-      "start": 3796,
-      "name": "push"
-    },
-    {
-      "end": 3821,
-      "start": 3819,
-      "name": "ht"
-    },
-    {
-      "end": 4163,
-      "start": 4158,
-      "name": "defun"
-    },
-    {
-      "end": 4813,
-      "start": 4805,
-      "name": "--mapcat"
-    },
-    {
-      "end": 5044,
-      "start": 5036,
-      "name": "--mapcat"
-    },
-    {
-      "end": 5264,
-      "start": 5256,
-      "name": "--mapcat"
-    },
-    {
-      "end": 5278,
-      "start": 5274,
-      "name": "when"
-    },
-    {
-      "end": 5447,
-      "start": 5443,
-      "name": "when"
-    },
-    {
-      "end": 5528,
-      "start": 5523,
-      "name": "defun"
-    },
-    {
-      "end": 5576,
-      "start": 5568,
-      "name": "--mapcat"
-    },
-    {
-      "end": 5620,
-      "start": 5615,
-      "name": "defun"
-    },
-    {
-      "end": 6014,
-      "start": 6007,
-      "name": "-lambda"
-    },
-    {
-      "end": 6088,
-      "start": 6084,
-      "name": "when"
-    },
-    {
-      "end": 6250,
-      "start": 6246,
-      "name": "push"
-    },
-    {
-      "end": 6267,
-      "start": 6265,
-      "name": "ht"
-    },
-    {
-      "end": 6503,
-      "start": 6498,
-      "name": "defun"
-    },
-    {
-      "end": 6769,
-      "start": 6765,
-      "name": "when"
-    },
-    {
-      "end": 6975,
-      "start": 6971,
-      "name": "when"
-    },
-    {
-      "end": 7124,
-      "start": 7116,
-      "name": "--mapcat"
-    },
-    {
-      "end": 7432,
-      "start": 7427,
-      "name": "defun"
-    },
-    {
-      "end": 7867,
-      "start": 7859,
-      "name": "--mapcat"
-    },
-    {
-      "end": 7923,
-      "start": 7918,
-      "name": "defun"
-    },
-    {
-      "end": 8088,
-      "start": 8069,
-      "name": "with-current-buffer"
-    },
-    {
-      "end": 8339,
-      "start": 8333,
-      "name": "--each"
-    },
-    {
-      "end": 8414,
-      "start": 8410,
-      "name": "push"
-    },
-    {
-      "end": 8435,
-      "start": 8433,
-      "name": "ht"
-    },
-    {
-      "end": 8847,
-      "start": 8842,
-      "name": "defun"
-    },
-    {
-      "end": 8990,
-      "start": 8971,
-      "name": "with-current-buffer"
-    },
-    {
-      "end": 9039,
-      "start": 9037,
-      "name": "ht"
-    },
-    {
-      "end": 9270,
-      "start": 9265,
-      "name": "defun"
-    }
-  ],
-  "function_calls": [
-    {
+      "namespace": "function",
       "end": 985,
       "start": 978,
       "name": "require"
     },
     {
+      "namespace": "function",
       "end": 1001,
       "start": 994,
       "name": "require"
     },
     {
+      "namespace": "function",
       "end": 1014,
       "start": 1007,
       "name": "require"
     },
     {
+      "namespace": "function",
       "end": 1030,
       "start": 1023,
       "name": "require"
     },
     {
+      "namespace": "macro",
+      "end": 1043,
+      "start": 1038,
+      "name": "defun"
+    },
+    {
+      "namespace": "macro",
+      "end": 1421,
+      "start": 1402,
+      "name": "with-current-buffer"
+    },
+    {
+      "namespace": "function",
       "end": 1442,
       "start": 1433,
       "name": "goto-char"
     },
     {
+      "namespace": "function",
       "end": 1453,
       "start": 1444,
       "name": "point-min"
     },
     {
+      "namespace": "function",
       "end": 1778,
       "start": 1773,
       "name": "point"
     },
     {
+      "namespace": "function",
       "end": 1811,
       "start": 1807,
       "name": "read"
     },
     {
+      "namespace": "function",
       "end": 1852,
       "start": 1847,
       "name": "point"
     },
     {
+      "namespace": "macro",
+      "end": 1875,
+      "start": 1871,
+      "name": "push"
+    },
+    {
+      "namespace": "function",
       "end": 1899,
       "start": 1892,
       "name": "funcall"
     },
     {
+      "namespace": "function",
       "end": 1972,
       "start": 1967,
       "name": "error"
     },
     {
+      "namespace": "macro",
+      "end": 1989,
+      "start": 1983,
+      "name": "unless"
+    },
+    {
+      "namespace": "function",
       "end": 1996,
       "start": 1991,
       "name": "equal"
     },
     {
+      "namespace": "function",
       "end": 2001,
       "start": 1998,
       "name": "car"
     },
     {
+      "namespace": "function",
       "end": 2086,
       "start": 2081,
       "name": "error"
     },
     {
+      "namespace": "function",
       "end": 2175,
       "start": 2159,
       "name": "buffer-file-name"
     },
     {
+      "namespace": "function",
       "end": 2183,
       "start": 2178,
       "name": "point"
     },
     {
+      "namespace": "function",
       "end": 2205,
       "start": 2200,
       "name": "apply"
     },
     {
+      "namespace": "function",
       "end": 2214,
       "start": 2208,
       "name": "append"
     },
     {
+      "namespace": "function",
       "end": 2224,
       "start": 2216,
       "name": "nreverse"
     },
     {
+      "namespace": "macro",
+      "end": 2365,
+      "start": 2360,
+      "name": "defun"
+    },
+    {
+      "namespace": "function",
       "end": 2624,
       "start": 2601,
       "name": "elisp-index--walk-calls"
     },
     {
+      "namespace": "function",
       "end": 2641,
       "start": 2626,
       "name": "macroexpand-all"
     },
     {
+      "namespace": "function",
       "end": 2732,
       "start": 2727,
       "name": "-each"
     },
     {
+      "namespace": "macro",
+      "end": 2774,
+      "start": 2767,
+      "name": "-lambda"
+    },
+    {
+      "namespace": "macro",
+      "end": 2851,
+      "start": 2847,
+      "name": "when"
+    },
+    {
+      "namespace": "function",
       "end": 2857,
       "start": 2853,
       "name": "memq"
     },
     {
+      "namespace": "function",
       "end": 2902,
       "start": 2901,
       "name": "+"
     },
     {
+      "namespace": "function",
       "end": 2953,
       "start": 2952,
       "name": "+"
     },
     {
+      "namespace": "function",
       "end": 2971,
       "start": 2965,
       "name": "length"
     },
     {
+      "namespace": "function",
       "end": 2984,
       "start": 2973,
       "name": "symbol-name"
     },
     {
+      "namespace": "macro",
+      "end": 3011,
+      "start": 3007,
+      "name": "push"
+    },
+    {
+      "namespace": "macro",
+      "end": 3028,
+      "start": 3026,
+      "name": "ht"
+    },
+    {
+      "namespace": "function",
       "end": 3063,
       "start": 3052,
       "name": "symbol-name"
     },
     {
+      "namespace": "function",
       "end": 3163,
       "start": 3161,
       "name": "1-"
     },
     {
+      "namespace": "function",
       "end": 3200,
       "start": 3198,
       "name": "1-"
     },
     {
+      "namespace": "function",
       "end": 3248,
       "start": 3240,
       "name": "nreverse"
     },
     {
+      "namespace": "macro",
+      "end": 3264,
+      "start": 3259,
+      "name": "defun"
+    },
+    {
+      "namespace": "function",
       "end": 3329,
       "start": 3304,
       "name": "elisp-index--mapcat-forms"
     },
     {
+      "namespace": "function",
       "end": 3367,
       "start": 3336,
       "name": "elisp-index--fn-calls-positions"
     },
     {
+      "namespace": "macro",
+      "end": 3377,
+      "start": 3372,
+      "name": "defun"
+    },
+    {
+      "namespace": "function",
       "end": 3439,
       "start": 3414,
       "name": "elisp-index--mapcat-forms"
     },
     {
+      "namespace": "function",
       "end": 3478,
       "start": 3446,
       "name": "elisp-index--mac-calls-positions"
     },
     {
-      "end": 3614,
-      "start": 3605,
+      "namespace": "macro",
+      "end": 3488,
+      "start": 3483,
+      "name": "defun"
+    },
+    {
+      "namespace": "function",
+      "end": 3567,
+      "start": 3542,
+      "name": "elisp-index--mapcat-forms"
+    },
+    {
+      "namespace": "function",
+      "end": 3625,
+      "start": 3594,
+      "name": "elisp-index--fn-calls-positions"
+    },
+    {
+      "namespace": "function",
+      "end": 3682,
+      "start": 3657,
+      "name": "elisp-index--mapcat-forms"
+    },
+    {
+      "namespace": "function",
+      "end": 3741,
+      "start": 3709,
+      "name": "elisp-index--mac-calls-positions"
+    },
+    {
+      "namespace": "macro",
+      "end": 3756,
+      "start": 3750,
+      "name": "--each"
+    },
+    {
+      "namespace": "function",
+      "end": 3779,
+      "start": 3773,
+      "name": "ht-set"
+    },
+    {
+      "namespace": "macro",
+      "end": 3819,
+      "start": 3813,
+      "name": "--each"
+    },
+    {
+      "namespace": "function",
+      "end": 3843,
+      "start": 3837,
+      "name": "ht-set"
+    },
+    {
+      "namespace": "macro",
+      "end": 3880,
+      "start": 3874,
+      "name": "--sort"
+    },
+    {
+      "namespace": "function",
+      "end": 3888,
+      "start": 3887,
+      "name": "<"
+    },
+    {
+      "namespace": "function",
+      "end": 3896,
+      "start": 3890,
+      "name": "ht-get"
+    },
+    {
+      "namespace": "function",
+      "end": 3924,
+      "start": 3918,
+      "name": "ht-get"
+    },
+    {
+      "namespace": "function",
+      "end": 3953,
+      "start": 3947,
+      "name": "append"
+    },
+    {
+      "namespace": "macro",
+      "end": 3984,
+      "start": 3979,
+      "name": "defun"
+    },
+    {
+      "namespace": "macro",
+      "end": 4089,
+      "start": 4070,
+      "name": "with-current-buffer"
+    },
+    {
+      "namespace": "function",
+      "end": 4110,
+      "start": 4101,
       "name": "goto-char"
     },
     {
-      "end": 3625,
-      "start": 3616,
+      "namespace": "function",
+      "end": 4121,
+      "start": 4112,
       "name": "point-min"
     },
     {
-      "end": 3690,
-      "start": 3686,
+      "namespace": "function",
+      "end": 4186,
+      "start": 4182,
       "name": "read"
     },
     {
-      "end": 3714,
-      "start": 3709,
+      "namespace": "function",
+      "end": 4210,
+      "start": 4205,
       "name": "-each"
     },
     {
-      "end": 3842,
-      "start": 3831,
+      "namespace": "macro",
+      "end": 4260,
+      "start": 4253,
+      "name": "-lambda"
+    },
+    {
+      "namespace": "macro",
+      "end": 4296,
+      "start": 4292,
+      "name": "push"
+    },
+    {
+      "namespace": "macro",
+      "end": 4317,
+      "start": 4315,
+      "name": "ht"
+    },
+    {
+      "namespace": "function",
+      "end": 4338,
+      "start": 4327,
       "name": "symbol-name"
     },
     {
-      "end": 3907,
-      "start": 3902,
+      "namespace": "function",
+      "end": 4403,
+      "start": 4398,
       "name": "error"
     },
     {
-      "end": 3927,
-      "start": 3922,
+      "namespace": "function",
+      "end": 4423,
+      "start": 4418,
       "name": "equal"
     },
     {
-      "end": 3932,
-      "start": 3929,
+      "namespace": "function",
+      "end": 4428,
+      "start": 4425,
       "name": "car"
     },
     {
-      "end": 3974,
-      "start": 3966,
+      "namespace": "function",
+      "end": 4470,
+      "start": 4462,
       "name": "nreverse"
     },
     {
-      "end": 4046,
-      "start": 4041,
+      "namespace": "function",
+      "end": 4542,
+      "start": 4537,
       "name": "error"
     },
     {
-      "end": 4135,
-      "start": 4119,
+      "namespace": "function",
+      "end": 4631,
+      "start": 4615,
       "name": "buffer-file-name"
     },
     {
-      "end": 4143,
-      "start": 4138,
+      "namespace": "function",
+      "end": 4639,
+      "start": 4634,
       "name": "point"
     },
     {
-      "end": 4187,
-      "start": 4164,
+      "namespace": "macro",
+      "end": 4659,
+      "start": 4654,
+      "name": "defun"
+    },
+    {
+      "namespace": "function",
+      "end": 4683,
+      "start": 4660,
       "name": "elisp-index--walk-calls"
     },
     {
-      "end": 4211,
-      "start": 4208,
+      "namespace": "function",
+      "end": 4707,
+      "start": 4704,
       "name": "not"
     },
     {
-      "end": 4218,
-      "start": 4213,
+      "namespace": "function",
+      "end": 4714,
+      "start": 4709,
       "name": "consp"
     },
     {
-      "end": 4242,
-      "start": 4240,
+      "namespace": "function",
+      "end": 4738,
+      "start": 4736,
       "name": "eq"
     },
     {
-      "end": 4247,
-      "start": 4244,
+      "namespace": "function",
+      "end": 4743,
+      "start": 4740,
       "name": "car"
     },
     {
-      "end": 4278,
-      "start": 4276,
+      "namespace": "function",
+      "end": 4774,
+      "start": 4772,
       "name": "or"
     },
     {
-      "end": 4282,
-      "start": 4280,
+      "namespace": "function",
+      "end": 4778,
+      "start": 4776,
       "name": "eq"
     },
     {
-      "end": 4287,
-      "start": 4284,
+      "namespace": "function",
+      "end": 4783,
+      "start": 4780,
       "name": "car"
     },
     {
-      "end": 4313,
-      "start": 4311,
+      "namespace": "function",
+      "end": 4809,
+      "start": 4807,
       "name": "eq"
     },
     {
-      "end": 4318,
-      "start": 4315,
+      "namespace": "function",
+      "end": 4814,
+      "start": 4811,
       "name": "car"
     },
     {
-      "end": 4364,
-      "start": 4336,
+      "namespace": "function",
+      "end": 4860,
+      "start": 4832,
       "name": "elisp-index--walk-calls-body"
     },
     {
-      "end": 4369,
-      "start": 4366,
+      "namespace": "function",
+      "end": 4865,
+      "start": 4862,
       "name": "cdr"
     },
     {
-      "end": 4385,
-      "start": 4383,
-      "name": "eq"
-    },
-    {
-      "end": 4390,
-      "start": 4387,
-      "name": "car"
-    },
-    {
-      "end": 4424,
-      "start": 4417,
-      "name": "symbolp"
-    },
-    {
-      "end": 4492,
-      "start": 4489,
-      "name": "cdr"
-    },
-    {
-      "end": 4572,
-      "start": 4549,
-      "name": "elisp-index--walk-calls"
-    },
-    {
-      "end": 4595,
-      "start": 4593,
-      "name": "eq"
-    },
-    {
-      "end": 4600,
-      "start": 4597,
-      "name": "car"
-    },
-    {
-      "end": 4649,
-      "start": 4621,
-      "name": "elisp-index--walk-calls-body"
-    },
-    {
-      "end": 4671,
-      "start": 4669,
-      "name": "eq"
-    },
-    {
-      "end": 4676,
-      "start": 4673,
-      "name": "car"
-    },
-    {
-      "end": 4722,
-      "start": 4699,
-      "name": "elisp-index--walk-calls"
-    },
-    {
-      "end": 4727,
-      "start": 4724,
-      "name": "nth"
-    },
-    {
-      "end": 4746,
-      "start": 4744,
-      "name": "eq"
-    },
-    {
-      "end": 4751,
-      "start": 4748,
-      "name": "car"
-    },
-    {
-      "end": 4789,
-      "start": 4786,
-      "name": "cdr"
-    },
-    {
-      "end": 4850,
-      "start": 4822,
-      "name": "elisp-index--walk-calls-body"
-    },
-    {
+      "namespace": "function",
       "end": 4881,
       "start": 4879,
       "name": "eq"
     },
     {
+      "namespace": "function",
       "end": 4886,
       "start": 4883,
       "name": "car"
     },
     {
-      "end": 4931,
-      "start": 4928,
-      "name": "nth"
+      "namespace": "function",
+      "end": 4920,
+      "start": 4913,
+      "name": "symbolp"
     },
     {
-      "end": 4989,
-      "start": 4983,
-      "name": "append"
-    },
-    {
-      "end": 5021,
-      "start": 4998,
-      "name": "elisp-index--walk-calls"
-    },
-    {
-      "end": 5082,
-      "start": 5054,
-      "name": "elisp-index--walk-calls-body"
-    },
-    {
-      "end": 5087,
-      "start": 5084,
+      "namespace": "function",
+      "end": 4988,
+      "start": 4985,
       "name": "cdr"
     },
     {
-      "end": 5121,
-      "start": 5119,
+      "namespace": "function",
+      "end": 5068,
+      "start": 5045,
+      "name": "elisp-index--walk-calls"
+    },
+    {
+      "namespace": "function",
+      "end": 5091,
+      "start": 5089,
+      "name": "eq"
+    },
+    {
+      "namespace": "function",
+      "end": 5096,
+      "start": 5093,
+      "name": "car"
+    },
+    {
+      "namespace": "function",
+      "end": 5145,
+      "start": 5117,
+      "name": "elisp-index--walk-calls-body"
+    },
+    {
+      "namespace": "function",
+      "end": 5167,
+      "start": 5165,
+      "name": "eq"
+    },
+    {
+      "namespace": "function",
+      "end": 5172,
+      "start": 5169,
+      "name": "car"
+    },
+    {
+      "namespace": "function",
+      "end": 5218,
+      "start": 5195,
+      "name": "elisp-index--walk-calls"
+    },
+    {
+      "namespace": "function",
+      "end": 5223,
+      "start": 5220,
+      "name": "nth"
+    },
+    {
+      "namespace": "function",
+      "end": 5242,
+      "start": 5240,
+      "name": "eq"
+    },
+    {
+      "namespace": "function",
+      "end": 5247,
+      "start": 5244,
+      "name": "car"
+    },
+    {
+      "namespace": "function",
+      "end": 5285,
+      "start": 5282,
+      "name": "cdr"
+    },
+    {
+      "namespace": "macro",
+      "end": 5309,
+      "start": 5301,
+      "name": "--mapcat"
+    },
+    {
+      "namespace": "function",
+      "end": 5346,
+      "start": 5318,
+      "name": "elisp-index--walk-calls-body"
+    },
+    {
+      "namespace": "function",
+      "end": 5377,
+      "start": 5375,
+      "name": "eq"
+    },
+    {
+      "namespace": "function",
+      "end": 5382,
+      "start": 5379,
+      "name": "car"
+    },
+    {
+      "namespace": "function",
+      "end": 5427,
+      "start": 5424,
+      "name": "nth"
+    },
+    {
+      "namespace": "function",
+      "end": 5485,
+      "start": 5479,
+      "name": "append"
+    },
+    {
+      "namespace": "function",
+      "end": 5517,
+      "start": 5494,
+      "name": "elisp-index--walk-calls"
+    },
+    {
+      "namespace": "macro",
+      "end": 5540,
+      "start": 5532,
+      "name": "--mapcat"
+    },
+    {
+      "namespace": "function",
+      "end": 5578,
+      "start": 5550,
+      "name": "elisp-index--walk-calls-body"
+    },
+    {
+      "namespace": "function",
+      "end": 5583,
+      "start": 5580,
+      "name": "cdr"
+    },
+    {
+      "namespace": "function",
+      "end": 5617,
+      "start": 5615,
       "name": "or"
     },
     {
-      "end": 5125,
-      "start": 5123,
+      "namespace": "function",
+      "end": 5621,
+      "start": 5619,
       "name": "eq"
     },
     {
-      "end": 5130,
-      "start": 5127,
+      "namespace": "function",
+      "end": 5626,
+      "start": 5623,
       "name": "car"
     },
     {
-      "end": 5154,
-      "start": 5152,
+      "namespace": "function",
+      "end": 5650,
+      "start": 5648,
       "name": "eq"
     },
     {
-      "end": 5159,
-      "start": 5156,
+      "namespace": "function",
+      "end": 5655,
+      "start": 5652,
       "name": "car"
     },
     {
-      "end": 5194,
-      "start": 5191,
+      "namespace": "function",
+      "end": 5690,
+      "start": 5687,
       "name": "nth"
     },
     {
-      "end": 5247,
-      "start": 5241,
+      "namespace": "function",
+      "end": 5743,
+      "start": 5737,
       "name": "append"
     },
     {
-      "end": 5285,
-      "start": 5280,
+      "namespace": "macro",
+      "end": 5760,
+      "start": 5752,
+      "name": "--mapcat"
+    },
+    {
+      "namespace": "macro",
+      "end": 5774,
+      "start": 5770,
+      "name": "when"
+    },
+    {
+      "namespace": "function",
+      "end": 5781,
+      "start": 5776,
       "name": "consp"
     },
     {
-      "end": 5329,
-      "start": 5301,
+      "namespace": "function",
+      "end": 5825,
+      "start": 5797,
       "name": "elisp-index--walk-calls-body"
     },
     {
-      "end": 5334,
-      "start": 5331,
+      "namespace": "function",
+      "end": 5830,
+      "start": 5827,
       "name": "cdr"
     },
     {
-      "end": 5391,
-      "start": 5363,
+      "namespace": "function",
+      "end": 5887,
+      "start": 5859,
       "name": "elisp-index--walk-calls-body"
     },
     {
-      "end": 5420,
-      "start": 5416,
+      "namespace": "function",
+      "end": 5916,
+      "start": 5912,
       "name": "cons"
     },
     {
-      "end": 5430,
-      "start": 5427,
+      "namespace": "function",
+      "end": 5926,
+      "start": 5923,
       "name": "car"
     },
     {
-      "end": 5454,
-      "start": 5449,
+      "namespace": "macro",
+      "end": 5943,
+      "start": 5939,
+      "name": "when"
+    },
+    {
+      "namespace": "function",
+      "end": 5950,
+      "start": 5945,
       "name": "consp"
     },
     {
-      "end": 5459,
-      "start": 5456,
+      "namespace": "function",
+      "end": 5955,
+      "start": 5952,
       "name": "cdr"
     },
     {
-      "end": 5503,
-      "start": 5475,
+      "namespace": "function",
+      "end": 5999,
+      "start": 5971,
       "name": "elisp-index--walk-calls-body"
     },
     {
-      "end": 5508,
-      "start": 5505,
+      "namespace": "function",
+      "end": 6004,
+      "start": 6001,
       "name": "cdr"
     },
     {
-      "end": 5601,
-      "start": 5578,
+      "namespace": "macro",
+      "end": 6024,
+      "start": 6019,
+      "name": "defun"
+    },
+    {
+      "namespace": "macro",
+      "end": 6072,
+      "start": 6064,
+      "name": "--mapcat"
+    },
+    {
+      "namespace": "function",
+      "end": 6097,
+      "start": 6074,
       "name": "elisp-index--walk-calls"
     },
     {
-      "end": 5882,
-      "start": 5853,
+      "namespace": "macro",
+      "end": 6116,
+      "start": 6111,
+      "name": "defun"
+    },
+    {
+      "namespace": "function",
+      "end": 6378,
+      "start": 6349,
       "name": "elisp-index--called-macros-in"
     },
     {
-      "end": 5972,
-      "start": 5967,
+      "namespace": "function",
+      "end": 6468,
+      "start": 6463,
       "name": "-each"
     },
     {
-      "end": 6094,
-      "start": 6090,
+      "namespace": "macro",
+      "end": 6510,
+      "start": 6503,
+      "name": "-lambda"
+    },
+    {
+      "namespace": "macro",
+      "end": 6584,
+      "start": 6580,
+      "name": "when"
+    },
+    {
+      "namespace": "function",
+      "end": 6590,
+      "start": 6586,
       "name": "memq"
     },
     {
-      "end": 6141,
-      "start": 6140,
+      "namespace": "function",
+      "end": 6637,
+      "start": 6636,
       "name": "+"
     },
     {
-      "end": 6192,
-      "start": 6191,
+      "namespace": "function",
+      "end": 6688,
+      "start": 6687,
       "name": "+"
     },
     {
-      "end": 6210,
-      "start": 6204,
+      "namespace": "function",
+      "end": 6706,
+      "start": 6700,
       "name": "length"
     },
     {
-      "end": 6223,
-      "start": 6212,
+      "namespace": "function",
+      "end": 6719,
+      "start": 6708,
       "name": "symbol-name"
     },
     {
-      "end": 6302,
-      "start": 6291,
+      "namespace": "macro",
+      "end": 6746,
+      "start": 6742,
+      "name": "push"
+    },
+    {
+      "namespace": "macro",
+      "end": 6763,
+      "start": 6761,
+      "name": "ht"
+    },
+    {
+      "namespace": "function",
+      "end": 6798,
+      "start": 6787,
       "name": "symbol-name"
     },
     {
-      "end": 6402,
-      "start": 6400,
+      "namespace": "function",
+      "end": 6898,
+      "start": 6896,
       "name": "1-"
     },
     {
-      "end": 6439,
-      "start": 6437,
+      "namespace": "function",
+      "end": 6935,
+      "start": 6933,
       "name": "1-"
     },
     {
-      "end": 6487,
-      "start": 6479,
+      "namespace": "function",
+      "end": 6983,
+      "start": 6975,
       "name": "nreverse"
     },
     {
-      "end": 6533,
-      "start": 6504,
+      "namespace": "macro",
+      "end": 6999,
+      "start": 6994,
+      "name": "defun"
+    },
+    {
+      "namespace": "function",
+      "end": 7029,
+      "start": 7000,
       "name": "elisp-index--called-macros-in"
     },
     {
-      "end": 6776,
-      "start": 6771,
+      "namespace": "macro",
+      "end": 7265,
+      "start": 7261,
+      "name": "when"
+    },
+    {
+      "namespace": "function",
+      "end": 7272,
+      "start": 7267,
       "name": "consp"
     },
     {
-      "end": 6862,
-      "start": 6849,
+      "namespace": "function",
+      "end": 7358,
+      "start": 7345,
       "name": "macroexpand-1"
     },
     {
-      "end": 6980,
-      "start": 6977,
+      "namespace": "macro",
+      "end": 7471,
+      "start": 7467,
+      "name": "when"
+    },
+    {
+      "namespace": "function",
+      "end": 7476,
+      "start": 7473,
       "name": "and"
     },
     {
-      "end": 6987,
-      "start": 6982,
+      "namespace": "function",
+      "end": 7483,
+      "start": 7478,
       "name": "consp"
     },
     {
-      "end": 7027,
-      "start": 7022,
+      "namespace": "function",
+      "end": 7523,
+      "start": 7518,
       "name": "consp"
     },
     {
-      "end": 7032,
-      "start": 7029,
+      "namespace": "function",
+      "end": 7528,
+      "start": 7525,
       "name": "cdr"
     },
     {
-      "end": 7071,
-      "start": 7068,
+      "namespace": "function",
+      "end": 7567,
+      "start": 7564,
       "name": "not"
     },
     {
-      "end": 7075,
-      "start": 7073,
+      "namespace": "function",
+      "end": 7571,
+      "start": 7569,
       "name": "eq"
     },
     {
-      "end": 7080,
-      "start": 7077,
+      "namespace": "function",
+      "end": 7576,
+      "start": 7573,
       "name": "car"
     },
     {
-      "end": 7155,
-      "start": 7126,
+      "namespace": "macro",
+      "end": 7620,
+      "start": 7612,
+      "name": "--mapcat"
+    },
+    {
+      "namespace": "function",
+      "end": 7651,
+      "start": 7622,
       "name": "elisp-index--called-macros-in"
     },
     {
-      "end": 7164,
-      "start": 7161,
+      "namespace": "function",
+      "end": 7660,
+      "start": 7657,
       "name": "cdr"
     },
     {
-      "end": 7191,
-      "start": 7186,
+      "namespace": "function",
+      "end": 7687,
+      "start": 7682,
       "name": "equal"
     },
     {
-      "end": 7403,
-      "start": 7399,
+      "namespace": "function",
+      "end": 7899,
+      "start": 7895,
       "name": "cons"
     },
     {
-      "end": 7408,
-      "start": 7405,
+      "namespace": "function",
+      "end": 7904,
+      "start": 7901,
       "name": "car"
     },
     {
-      "end": 7460,
-      "start": 7433,
+      "namespace": "macro",
+      "end": 7928,
+      "start": 7923,
+      "name": "defun"
+    },
+    {
+      "namespace": "function",
+      "end": 7956,
+      "start": 7929,
       "name": "elisp-index--definitions-in"
     },
     {
-      "end": 7584,
-      "start": 7581,
+      "namespace": "function",
+      "end": 8080,
+      "start": 8077,
       "name": "not"
     },
     {
-      "end": 7591,
-      "start": 7586,
+      "namespace": "function",
+      "end": 8087,
+      "start": 8082,
       "name": "consp"
     },
     {
-      "end": 7615,
-      "start": 7613,
+      "namespace": "function",
+      "end": 8111,
+      "start": 8109,
       "name": "eq"
     },
     {
-      "end": 7620,
-      "start": 7617,
+      "namespace": "function",
+      "end": 8116,
+      "start": 8113,
       "name": "car"
     },
     {
-      "end": 7651,
-      "start": 7649,
+      "namespace": "function",
+      "end": 8147,
+      "start": 8145,
       "name": "eq"
     },
     {
-      "end": 7656,
-      "start": 7653,
+      "namespace": "function",
+      "end": 8152,
+      "start": 8149,
       "name": "car"
     },
     {
-      "end": 7701,
-      "start": 7698,
+      "namespace": "function",
+      "end": 8197,
+      "start": 8194,
       "name": "nth"
     },
     {
-      "end": 7731,
-      "start": 7728,
+      "namespace": "function",
+      "end": 8227,
+      "start": 8224,
       "name": "nth"
     },
     {
-      "end": 7761,
-      "start": 7758,
+      "namespace": "function",
+      "end": 8257,
+      "start": 8254,
       "name": "nth"
     },
     {
-      "end": 7789,
-      "start": 7785,
+      "namespace": "function",
+      "end": 8285,
+      "start": 8281,
       "name": "cons"
     },
     {
-      "end": 7822,
-      "start": 7795,
+      "namespace": "function",
+      "end": 8318,
+      "start": 8291,
       "name": "elisp-index--definitions-in"
     },
     {
-      "end": 7841,
-      "start": 7836,
+      "namespace": "function",
+      "end": 8337,
+      "start": 8332,
       "name": "consp"
     },
     {
-      "end": 7846,
-      "start": 7843,
+      "namespace": "function",
+      "end": 8342,
+      "start": 8339,
       "name": "cdr"
     },
     {
-      "end": 7896,
-      "start": 7869,
+      "namespace": "macro",
+      "end": 8363,
+      "start": 8355,
+      "name": "--mapcat"
+    },
+    {
+      "namespace": "function",
+      "end": 8392,
+      "start": 8365,
       "name": "elisp-index--definitions-in"
     },
     {
-      "end": 7905,
-      "start": 7902,
+      "namespace": "function",
+      "end": 8401,
+      "start": 8398,
       "name": "cdr"
     },
     {
-      "end": 8109,
-      "start": 8100,
+      "namespace": "macro",
+      "end": 8419,
+      "start": 8414,
+      "name": "defun"
+    },
+    {
+      "namespace": "macro",
+      "end": 8584,
+      "start": 8565,
+      "name": "with-current-buffer"
+    },
+    {
+      "namespace": "function",
+      "end": 8605,
+      "start": 8596,
       "name": "goto-char"
     },
     {
-      "end": 8120,
-      "start": 8111,
+      "namespace": "function",
+      "end": 8616,
+      "start": 8607,
       "name": "point-min"
     },
     {
-      "end": 8198,
-      "start": 8194,
+      "namespace": "function",
+      "end": 8694,
+      "start": 8690,
       "name": "read"
     },
     {
-      "end": 8239,
-      "start": 8234,
+      "namespace": "function",
+      "end": 8735,
+      "start": 8730,
       "name": "point"
     },
     {
-      "end": 8283,
-      "start": 8273,
+      "namespace": "function",
+      "end": 8779,
+      "start": 8769,
       "name": "scan-sexps"
     },
     {
-      "end": 8290,
-      "start": 8285,
+      "namespace": "function",
+      "end": 8786,
+      "start": 8781,
       "name": "point"
     },
     {
-      "end": 8368,
-      "start": 8341,
+      "namespace": "macro",
+      "end": 8835,
+      "start": 8829,
+      "name": "--each"
+    },
+    {
+      "namespace": "function",
+      "end": 8864,
+      "start": 8837,
       "name": "elisp-index--definitions-in"
     },
     {
-      "end": 8385,
-      "start": 8370,
+      "namespace": "function",
+      "end": 8881,
+      "start": 8866,
       "name": "macroexpand-all"
     },
     {
-      "end": 8456,
-      "start": 8445,
+      "namespace": "macro",
+      "end": 8910,
+      "start": 8906,
+      "name": "push"
+    },
+    {
+      "namespace": "macro",
+      "end": 8931,
+      "start": 8929,
+      "name": "ht"
+    },
+    {
+      "namespace": "function",
+      "end": 8952,
+      "start": 8941,
       "name": "symbol-name"
     },
     {
-      "end": 8495,
-      "start": 8493,
+      "namespace": "function",
+      "end": 8991,
+      "start": 8989,
       "name": "1-"
     },
     {
-      "end": 8539,
-      "start": 8537,
+      "namespace": "function",
+      "end": 9035,
+      "start": 9033,
       "name": "1-"
     },
     {
-      "end": 8591,
-      "start": 8586,
+      "namespace": "function",
+      "end": 9087,
+      "start": 9082,
       "name": "error"
     },
     {
-      "end": 8611,
-      "start": 8606,
+      "namespace": "function",
+      "end": 9107,
+      "start": 9102,
       "name": "equal"
     },
     {
-      "end": 8616,
-      "start": 8613,
+      "namespace": "function",
+      "end": 9112,
+      "start": 9109,
       "name": "car"
     },
     {
-      "end": 8658,
-      "start": 8650,
+      "namespace": "function",
+      "end": 9154,
+      "start": 9146,
       "name": "nreverse"
     },
     {
-      "end": 8730,
-      "start": 8725,
+      "namespace": "function",
+      "end": 9226,
+      "start": 9221,
       "name": "error"
     },
     {
-      "end": 8819,
-      "start": 8803,
+      "namespace": "function",
+      "end": 9315,
+      "start": 9299,
       "name": "buffer-file-name"
     },
     {
-      "end": 8827,
-      "start": 8822,
+      "namespace": "function",
+      "end": 9323,
+      "start": 9318,
       "name": "point"
     },
     {
-      "end": 8908,
-      "start": 8890,
+      "namespace": "macro",
+      "end": 9343,
+      "start": 9338,
+      "name": "defun"
+    },
+    {
+      "namespace": "function",
+      "end": 9404,
+      "start": 9386,
       "name": "find-file-noselect"
     },
     {
-      "end": 9009,
-      "start": 8996,
+      "namespace": "macro",
+      "end": 9486,
+      "start": 9467,
+      "name": "with-current-buffer"
+    },
+    {
+      "namespace": "function",
+      "end": 9505,
+      "start": 9492,
       "name": "buffer-string"
     },
     {
-      "end": 9030,
-      "start": 9019,
+      "namespace": "function",
+      "end": 9526,
+      "start": 9515,
       "name": "json-encode"
     },
     {
-      "end": 9065,
-      "start": 9055,
+      "namespace": "macro",
+      "end": 9535,
+      "start": 9533,
+      "name": "ht"
+    },
+    {
+      "namespace": "function",
+      "end": 9561,
+      "start": 9551,
       "name": "f-filename"
     },
     {
-      "end": 9136,
-      "start": 9114,
+      "namespace": "function",
+      "end": 9632,
+      "start": 9610,
       "name": "elisp-index--functions"
     },
     {
-      "end": 9197,
-      "start": 9168,
-      "name": "elisp-index--called-functions"
+      "namespace": "function",
+      "end": 9673,
+      "start": 9655,
+      "name": "elisp-index--calls"
     },
     {
-      "end": 9252,
-      "start": 9226,
-      "name": "elisp-index--called-macros"
+      "namespace": "macro",
+      "end": 9691,
+      "start": 9686,
+      "name": "defun"
     },
     {
-      "end": 9423,
-      "start": 9413,
+      "namespace": "function",
+      "end": 9844,
+      "start": 9834,
       "name": "f-filename"
     },
     {
-      "end": 9472,
-      "start": 9466,
+      "namespace": "function",
+      "end": 9893,
+      "start": 9887,
       "name": "format"
     },
     {
-      "end": 9499,
-      "start": 9484,
+      "namespace": "function",
+      "end": 9920,
+      "start": 9905,
       "name": "s-chop-suffixes"
     },
     {
-      "end": 9540,
-      "start": 9533,
+      "namespace": "function",
+      "end": 9961,
+      "start": 9954,
       "name": "f-write"
     },
     {
-      "end": 9566,
-      "start": 9547,
+      "namespace": "function",
+      "end": 9987,
+      "start": 9968,
       "name": "elisp-index--encode"
     },
     {
-      "end": 9597,
-      "start": 9591,
+      "namespace": "function",
+      "end": 10018,
+      "start": 10012,
       "name": "f-join"
     },
     {
-      "end": 9633,
-      "start": 9628,
+      "namespace": "function",
+      "end": 10054,
+      "start": 10049,
       "name": "princ"
     },
     {
-      "end": 9641,
-      "start": 9635,
+      "namespace": "function",
+      "end": 10062,
+      "start": 10056,
       "name": "format"
     },
     {
-      "end": 9662,
-      "start": 9656,
+      "namespace": "function",
+      "end": 10083,
+      "start": 10077,
       "name": "f-join"
     },
     {
-      "end": 9705,
-      "start": 9698,
+      "namespace": "function",
+      "end": 10126,
+      "start": 10119,
       "name": "provide"
     }
   ],
@@ -1130,51 +1427,56 @@
       "name": "elisp-index--called-macros"
     },
     {
-      "end": 4155,
+      "end": 3976,
       "start": 3482,
+      "name": "elisp-index--calls"
+    },
+    {
+      "end": 4651,
+      "start": 3978,
       "name": "elisp-index--symbols"
     },
     {
-      "end": 5520,
-      "start": 4157,
+      "end": 6016,
+      "start": 4653,
       "name": "elisp-index--walk-calls"
     },
     {
-      "end": 5612,
-      "start": 5522,
+      "end": 6108,
+      "start": 6018,
       "name": "elisp-index--walk-calls-body"
     },
     {
-      "end": 6495,
-      "start": 5614,
+      "end": 6991,
+      "start": 6110,
       "name": "elisp-index--mac-calls-positions"
     },
     {
-      "end": 7424,
-      "start": 6497,
+      "end": 7920,
+      "start": 6993,
       "name": "elisp-index--called-macros-in"
     },
     {
-      "end": 7915,
-      "start": 7426,
+      "end": 8411,
+      "start": 7922,
       "name": "elisp-index--definitions-in"
     },
     {
-      "end": 8839,
-      "start": 7917,
+      "end": 9335,
+      "start": 8413,
       "name": "elisp-index--functions"
     },
     {
-      "end": 9262,
-      "start": 8841,
+      "end": 9683,
+      "start": 9337,
       "name": "elisp-index--encode"
     },
     {
-      "end": 9695,
-      "start": 9264,
+      "end": 10116,
+      "start": 9685,
       "name": "elisp-index--write"
     }
   ],
-  "source": ";;; elisp-index.el --- Generate a list of all symbols in an elisp file  -*- lexical-binding: t; -*-\n\n;; Copyright (C) 2019  Wilfred Hughes\n;; Version: 0.1\n\n;; Author: Wilfred Hughes <me@wilfred.me.uk>\n;; Keywords: lisp\n;; Package-Requires: ((dash \"2.12.0\") (f \"0.19.0\") (ht \"2.2\") (s \"1.11.0\"))\n\n;; This program is free software; you can redistribute it and/or modify\n;; it under the terms of the GNU General Public License as published by\n;; the Free Software Foundation, either version 3 of the License, or\n;; (at your option) any later version.\n\n;; This program is distributed in the hope that it will be useful,\n;; but WITHOUT ANY WARRANTY; without even the implied warranty of\n;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n;; GNU General Public License for more details.\n\n;; You should have received a copy of the GNU General Public License\n;; along with this program.  If not, see <https://www.gnu.org/licenses/>.\n\n;;; Commentary:\n\n;; TODO\n\n;;; Code:\n\n(require 'dash)\n(require 'f)\n(require 'json)\n(require 'ht)\n\n(defun elisp-index--mapcat-forms (buf callback)\n  \"Read every form in BUF and execute CALLBACK.\n\nCALLBACK receives the form, and the start/end of the region that\ncontains the form. `read-symbol-positions-list' is also set\nduring the execution of CALLBACK.\n\nCALLBACK should return a list, and the results are concatenated\ninto a single list.\"\n  (let ((result))\n    (with-current-buffer buf\n      (goto-char (point-min))\n      (condition-case err\n          (while t\n            (let* ((read-with-symbol-positions t)\n                   ;; Note that this is not the start of the form,\n                   ;; because point may be before the form if there is\n                   ;; preceding whitespace/comments.\n                   (start-pos (point))\n                   (form (read buf))\n                   (end-pos (point)))\n              (push\n               (funcall callback form start-pos end-pos)\n               result)))\n        (error\n         (unless (equal (car err) 'end-of-file)\n           ;; Some unexpected error, propagate.\n           (error \"Unexpected error whilst reading %s position %s: %s\"\n                  (buffer-file-name) (point) err))))\n      (apply #'append (nreverse result)))))\n\n;; TODO: this is confused by\n;; (condition-case nil nil (error (error \"F\")))\n;; and thinks there are two calls to error.\n(defun elisp-index--fn-calls-positions (form region-start _region-end)\n  \"Return all the function calls in FORM: symbol names and positions.\n\nFunction symbols that do not occur before macro expansion are ignored.\"\n  (let ((fun-syms\n         (elisp-index--walk-calls (macroexpand-all form)))\n        syms)\n    ;; For every symbol that occurred in the source code:\n    (-each read-symbol-positions-list\n      (-lambda ((sym . offset))\n        ;; If it occurred as a function call.\n        (when (memq sym fun-syms)\n          (let* ((start-pos (+ region-start offset))\n                 (end-pos (+ start-pos (length (symbol-name sym)))))\n            (push\n             (ht\n              (\"name\" (symbol-name sym))\n              ;; Subtract 1 because emacs positions are 1-indexed.\n              (\"start\" (1- start-pos))\n              (\"end\" (1- end-pos)))\n             syms)))))\n    (nreverse syms)))\n\n(defun elisp-index--called-functions (buf)\n  (elisp-index--mapcat-forms buf #'elisp-index--fn-calls-positions))\n\n(defun elisp-index--called-macros (buf)\n  (elisp-index--mapcat-forms buf #'elisp-index--mac-calls-positions))\n\n(defun elisp-index--symbols (buf)\n  (let ((read-with-symbol-positions t)\n        syms)\n    (with-current-buffer buf\n      (goto-char (point-min))\n      (condition-case err\n          (while t\n            (read buf)\n            (-each read-symbol-positions-list\n              (-lambda ((sym . pos))\n                (push\n                 (ht (\"name\" (symbol-name sym)) (\"position\" pos))\n                 syms))))\n        (error\n         (if (equal (car err) 'end-of-file)\n             (nreverse syms)\n           ;; Some unexpected error, propagate.\n           (error \"Unexpected error whilst reading %s position %s: %s\"\n                  (buffer-file-name) (point) err)))))))\n\n(defun elisp-index--walk-calls (form)\n  (cond\n   ((not (consp form))\n    nil)\n   ((eq (car form) 'quote)\n    nil)\n   ((or (eq (car form) 'while)\n        (eq (car form) 'if))\n    (elisp-index--walk-calls-body (cdr form)))\n   ((eq (car form) 'function)\n    (if (symbolp (cadr form))\n        ;; For #'foo, assume it's a call.\n        (cdr form)\n      ;; For #'(lambda ...), just proceed.\n      (elisp-index--walk-calls (cadr form))))\n   ((eq (car form) 'lambda)\n    (elisp-index--walk-calls-body (cddr form)))\n   ((eq (car form) 'defalias)\n    (elisp-index--walk-calls (nth 2 form)))\n\n   ((eq (car form) 'cond)\n    (let* ((clauses (cdr form)))\n      (--mapcat\n       (elisp-index--walk-calls-body it)\n       clauses)))\n\n   ((eq (car form) 'condition-case)\n    (let* ((body (nth 2 form))\n           (clauses (cdddr form)))\n      (append\n       (elisp-index--walk-calls body)\n       (--mapcat\n        (elisp-index--walk-calls-body (cdr it))\n        clauses))))\n\n   ((or (eq (car form) 'let)\n        (eq (car form) 'let*))\n    (let ((head (nth 1 form))\n          (body (cddr form)))\n      (append\n       (--mapcat\n        (when (consp it)\n          (elisp-index--walk-calls-body (cdr it)))\n        head)\n       (elisp-index--walk-calls-body body))))\n   \n   (t\n    (cons\n     (car form)\n     (when (consp (cdr form))\n       (elisp-index--walk-calls-body (cdr form)))))))\n\n(defun elisp-index--walk-calls-body (body)\n  (--mapcat (elisp-index--walk-calls it) body))\n\n(defun elisp-index--mac-calls-positions (form region-start _region-end)\n  \"Return all the function calls in FORM: symbol names and positions.\n\nNot namespace aware, so will erroneously report variables as\nmacro calls.\"\n  (let ((macro-syms (elisp-index--called-macros-in form))\n        syms)\n    ;; For every symbol that occurred in the source code:\n    (-each read-symbol-positions-list\n      (-lambda ((sym . offset))\n        ;; If it occurred as a macro call.\n        (when (memq sym macro-syms)\n          (let* ((start-pos (+ region-start offset))\n                 (end-pos (+ start-pos (length (symbol-name sym)))))\n            (push\n             (ht\n              (\"name\" (symbol-name sym))\n              ;; Subtract 1 because emacs positions are 1-indexed.\n              (\"start\" (1- start-pos))\n              (\"end\" (1- end-pos)))\n             syms)))))\n    (nreverse syms)))\n\n(defun elisp-index--called-macros-in (form)\n  \"Return a list of all the macros used in FORM.\"\n  ;; Approximate the macro expansion that Emacs itself does. Emacs'\n  ;; implementation works by `macroexp--expand-all' and\n  ;; `macroexp--all-forms' calling each other.\n  (when (consp form)\n    ;; Perform one step of macro expansion.\n    (let* ((expanded (macroexpand-1 form))\n           ;; If we aren't quoted, expand any macro calls in the body.\n           (rest\n            (when (and (consp expanded)\n                       (consp (cdr expanded))\n                       (not (eq (car expanded) 'quote)))\n              (--mapcat (elisp-index--called-macros-in it) (cdr form)))))\n      (if (equal form expanded)\n          ;; If we didn't expand anything at the top-level, the car\n          ;; wasn't a macro.\n          rest\n        ;; The car was a macro, so add it to the list of found macros.\n        (cons (car form) rest)))))\n\n(defun elisp-index--definitions-in (form)\n  \"Return a list of all the functions defined in FORM.\nAssumes FORM has been fully macro expanded.\"\n  (cond\n   ((not (consp form))\n    nil)\n   ((eq (car form) 'quote)\n    nil)\n   ((eq (car form) 'defalias)\n    (let* ((quoted-sym (nth 1 form))\n           (def (nth 2 form))\n           (sym (nth 1 quoted-sym)))\n      (cons sym (elisp-index--definitions-in def))))\n   ((consp (cdr form))\n    (--mapcat (elisp-index--definitions-in it) (cdr form)))))\n\n(defun elisp-index--functions (buf)\n  \"Return a hashmap of all the functions defined in BUF.\"\n  (let ((read-with-symbol-positions t)\n        funs)\n    (with-current-buffer buf\n      (goto-char (point-min))\n      (condition-case err\n          (while t\n            (let* ((form (read buf))\n                   (end-pos (point))\n                   (start-pos (scan-sexps (point) -1))\n                   )\n              (--each (elisp-index--definitions-in (macroexpand-all form))\n                (push\n                 (ht (\"name\" (symbol-name it))\n                     (\"start\" (1- start-pos))\n                     (\"end\" (1- end-pos)))\n                 funs))))\n        (error\n         (if (equal (car err) 'end-of-file)\n             (nreverse funs)\n           ;; Some unexpected error, propagate.\n           (error \"Unexpected error whilst reading %s position %s: %s\"\n                  (buffer-file-name) (point) err)))))))\n\n(defun elisp-index--encode (path)\n  (let* ((buf (find-file-noselect path))\n         (json-encoding-pretty-print t)\n         (src (with-current-buffer buf (buffer-string))))\n    (json-encode\n     (ht\n      (\"name\" (f-filename path))\n      (\"source\" src)\n      (\"functions\" (elisp-index--functions buf))\n      (\"function_calls\" (elisp-index--called-functions buf))\n      (\"macro_calls\" (elisp-index--called-macros buf))))))\n\n(defun elisp-index--write (path dest-dir)\n  \"Read the elisp at PATH, and write a copy of the file and JSON\nsummary to DEST-DIR.\"\n  (let* ((filename (f-filename path))\n         (json-filename\n          (format \"%s.json\" (s-chop-suffixes '(\".gz\" \".el\") filename))))\n    (f-write\n     (elisp-index--encode path)\n     'utf-8\n     (f-join dest-dir json-filename))\n    (princ (format \"Wrote %s\\n\" (f-join dest-dir json-filename)))\n    ))\n\n(provide 'elisp-index)\n;;; elisp-index.el ends here\n",
+  "source": ";;; elisp-index.el --- Generate a list of all symbols in an elisp file  -*- lexical-binding: t; -*-\n\n;; Copyright (C) 2019  Wilfred Hughes\n;; Version: 0.1\n\n;; Author: Wilfred Hughes <me@wilfred.me.uk>\n;; Keywords: lisp\n;; Package-Requires: ((dash \"2.12.0\") (f \"0.19.0\") (ht \"2.2\") (s \"1.11.0\"))\n\n;; This program is free software; you can redistribute it and/or modify\n;; it under the terms of the GNU General Public License as published by\n;; the Free Software Foundation, either version 3 of the License, or\n;; (at your option) any later version.\n\n;; This program is distributed in the hope that it will be useful,\n;; but WITHOUT ANY WARRANTY; without even the implied warranty of\n;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n;; GNU General Public License for more details.\n\n;; You should have received a copy of the GNU General Public License\n;; along with this program.  If not, see <https://www.gnu.org/licenses/>.\n\n;;; Commentary:\n\n;; TODO\n\n;;; Code:\n\n(require 'dash)\n(require 'f)\n(require 'json)\n(require 'ht)\n\n(defun elisp-index--mapcat-forms (buf callback)\n  \"Read every form in BUF and execute CALLBACK.\n\nCALLBACK receives the form, and the start/end of the region that\ncontains the form. `read-symbol-positions-list' is also set\nduring the execution of CALLBACK.\n\nCALLBACK should return a list, and the results are concatenated\ninto a single list.\"\n  (let ((result))\n    (with-current-buffer buf\n      (goto-char (point-min))\n      (condition-case err\n          (while t\n            (let* ((read-with-symbol-positions t)\n                   ;; Note that this is not the start of the form,\n                   ;; because point may be before the form if there is\n                   ;; preceding whitespace/comments.\n                   (start-pos (point))\n                   (form (read buf))\n                   (end-pos (point)))\n              (push\n               (funcall callback form start-pos end-pos)\n               result)))\n        (error\n         (unless (equal (car err) 'end-of-file)\n           ;; Some unexpected error, propagate.\n           (error \"Unexpected error whilst reading %s position %s: %s\"\n                  (buffer-file-name) (point) err))))\n      (apply #'append (nreverse result)))))\n\n;; TODO: this is confused by\n;; (condition-case nil nil (error (error \"F\")))\n;; and thinks there are two calls to error.\n(defun elisp-index--fn-calls-positions (form region-start _region-end)\n  \"Return all the function calls in FORM: symbol names and positions.\n\nFunction symbols that do not occur before macro expansion are ignored.\"\n  (let ((fun-syms\n         (elisp-index--walk-calls (macroexpand-all form)))\n        syms)\n    ;; For every symbol that occurred in the source code:\n    (-each read-symbol-positions-list\n      (-lambda ((sym . offset))\n        ;; If it occurred as a function call.\n        (when (memq sym fun-syms)\n          (let* ((start-pos (+ region-start offset))\n                 (end-pos (+ start-pos (length (symbol-name sym)))))\n            (push\n             (ht\n              (\"name\" (symbol-name sym))\n              ;; Subtract 1 because emacs positions are 1-indexed.\n              (\"start\" (1- start-pos))\n              (\"end\" (1- end-pos)))\n             syms)))))\n    (nreverse syms)))\n\n(defun elisp-index--called-functions (buf)\n  (elisp-index--mapcat-forms buf #'elisp-index--fn-calls-positions))\n\n(defun elisp-index--called-macros (buf)\n  (elisp-index--mapcat-forms buf #'elisp-index--mac-calls-positions))\n\n(defun elisp-index--calls (buf)\n  (let ((fn-calls\n         (elisp-index--mapcat-forms\n          buf\n          #'elisp-index--fn-calls-positions))\n        (mac-calls\n         (elisp-index--mapcat-forms\n          buf\n          #'elisp-index--mac-calls-positions)))\n    (--each fn-calls\n      (ht-set it \"namespace\" \"function\"))\n    (--each mac-calls\n      (ht-set it \"namespace\" \"macro\"))\n    (--sort\n     (< (ht-get it \"start\")\n        (ht-get other \"start\"))\n     (append fn-calls mac-calls))))\n\n(defun elisp-index--symbols (buf)\n  (let ((read-with-symbol-positions t)\n        syms)\n    (with-current-buffer buf\n      (goto-char (point-min))\n      (condition-case err\n          (while t\n            (read buf)\n            (-each read-symbol-positions-list\n              (-lambda ((sym . pos))\n                (push\n                 (ht (\"name\" (symbol-name sym)) (\"position\" pos))\n                 syms))))\n        (error\n         (if (equal (car err) 'end-of-file)\n             (nreverse syms)\n           ;; Some unexpected error, propagate.\n           (error \"Unexpected error whilst reading %s position %s: %s\"\n                  (buffer-file-name) (point) err)))))))\n\n(defun elisp-index--walk-calls (form)\n  (cond\n   ((not (consp form))\n    nil)\n   ((eq (car form) 'quote)\n    nil)\n   ((or (eq (car form) 'while)\n        (eq (car form) 'if))\n    (elisp-index--walk-calls-body (cdr form)))\n   ((eq (car form) 'function)\n    (if (symbolp (cadr form))\n        ;; For #'foo, assume it's a call.\n        (cdr form)\n      ;; For #'(lambda ...), just proceed.\n      (elisp-index--walk-calls (cadr form))))\n   ((eq (car form) 'lambda)\n    (elisp-index--walk-calls-body (cddr form)))\n   ((eq (car form) 'defalias)\n    (elisp-index--walk-calls (nth 2 form)))\n\n   ((eq (car form) 'cond)\n    (let* ((clauses (cdr form)))\n      (--mapcat\n       (elisp-index--walk-calls-body it)\n       clauses)))\n\n   ((eq (car form) 'condition-case)\n    (let* ((body (nth 2 form))\n           (clauses (cdddr form)))\n      (append\n       (elisp-index--walk-calls body)\n       (--mapcat\n        (elisp-index--walk-calls-body (cdr it))\n        clauses))))\n\n   ((or (eq (car form) 'let)\n        (eq (car form) 'let*))\n    (let ((head (nth 1 form))\n          (body (cddr form)))\n      (append\n       (--mapcat\n        (when (consp it)\n          (elisp-index--walk-calls-body (cdr it)))\n        head)\n       (elisp-index--walk-calls-body body))))\n   \n   (t\n    (cons\n     (car form)\n     (when (consp (cdr form))\n       (elisp-index--walk-calls-body (cdr form)))))))\n\n(defun elisp-index--walk-calls-body (body)\n  (--mapcat (elisp-index--walk-calls it) body))\n\n(defun elisp-index--mac-calls-positions (form region-start _region-end)\n  \"Return all the function calls in FORM: symbol names and positions.\n\nNot namespace aware, so will erroneously report variables as\nmacro calls.\"\n  (let ((macro-syms (elisp-index--called-macros-in form))\n        syms)\n    ;; For every symbol that occurred in the source code:\n    (-each read-symbol-positions-list\n      (-lambda ((sym . offset))\n        ;; If it occurred as a macro call.\n        (when (memq sym macro-syms)\n          (let* ((start-pos (+ region-start offset))\n                 (end-pos (+ start-pos (length (symbol-name sym)))))\n            (push\n             (ht\n              (\"name\" (symbol-name sym))\n              ;; Subtract 1 because emacs positions are 1-indexed.\n              (\"start\" (1- start-pos))\n              (\"end\" (1- end-pos)))\n             syms)))))\n    (nreverse syms)))\n\n(defun elisp-index--called-macros-in (form)\n  \"Return a list of all the macros used in FORM.\"\n  ;; Approximate the macro expansion that Emacs itself does. Emacs'\n  ;; implementation works by `macroexp--expand-all' and\n  ;; `macroexp--all-forms' calling each other.\n  (when (consp form)\n    ;; Perform one step of macro expansion.\n    (let* ((expanded (macroexpand-1 form))\n           ;; If we aren't quoted, expand any macro calls in the body.\n           (rest\n            (when (and (consp expanded)\n                       (consp (cdr expanded))\n                       (not (eq (car expanded) 'quote)))\n              (--mapcat (elisp-index--called-macros-in it) (cdr form)))))\n      (if (equal form expanded)\n          ;; If we didn't expand anything at the top-level, the car\n          ;; wasn't a macro.\n          rest\n        ;; The car was a macro, so add it to the list of found macros.\n        (cons (car form) rest)))))\n\n(defun elisp-index--definitions-in (form)\n  \"Return a list of all the functions defined in FORM.\nAssumes FORM has been fully macro expanded.\"\n  (cond\n   ((not (consp form))\n    nil)\n   ((eq (car form) 'quote)\n    nil)\n   ((eq (car form) 'defalias)\n    (let* ((quoted-sym (nth 1 form))\n           (def (nth 2 form))\n           (sym (nth 1 quoted-sym)))\n      (cons sym (elisp-index--definitions-in def))))\n   ((consp (cdr form))\n    (--mapcat (elisp-index--definitions-in it) (cdr form)))))\n\n(defun elisp-index--functions (buf)\n  \"Return a hashmap of all the functions defined in BUF.\"\n  (let ((read-with-symbol-positions t)\n        funs)\n    (with-current-buffer buf\n      (goto-char (point-min))\n      (condition-case err\n          (while t\n            (let* ((form (read buf))\n                   (end-pos (point))\n                   (start-pos (scan-sexps (point) -1))\n                   )\n              (--each (elisp-index--definitions-in (macroexpand-all form))\n                (push\n                 (ht (\"name\" (symbol-name it))\n                     (\"start\" (1- start-pos))\n                     (\"end\" (1- end-pos)))\n                 funs))))\n        (error\n         (if (equal (car err) 'end-of-file)\n             (nreverse funs)\n           ;; Some unexpected error, propagate.\n           (error \"Unexpected error whilst reading %s position %s: %s\"\n                  (buffer-file-name) (point) err)))))))\n\n(defun elisp-index--encode (path)\n  (let* ((buf (find-file-noselect path))\n         (json-encoding-pretty-print t)\n         (src (with-current-buffer buf (buffer-string))))\n    (json-encode\n     (ht\n      (\"name\" (f-filename path))\n      (\"source\" src)\n      (\"functions\" (elisp-index--functions buf))\n      (\"calls\" (elisp-index--calls buf))))))\n\n(defun elisp-index--write (path dest-dir)\n  \"Read the elisp at PATH, and write a copy of the file and JSON\nsummary to DEST-DIR.\"\n  (let* ((filename (f-filename path))\n         (json-filename\n          (format \"%s.json\" (s-chop-suffixes '(\".gz\" \".el\") filename))))\n    (f-write\n     (elisp-index--encode path)\n     'utf-8\n     (f-join dest-dir json-filename))\n    (princ (format \"Wrote %s\\n\" (f-join dest-dir json-filename)))\n    ))\n\n(provide 'elisp-index)\n;;; elisp-index.el ends here\n",
   "name": "elisp-index.el"
 }
