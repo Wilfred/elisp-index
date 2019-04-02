@@ -41,7 +41,12 @@ const LinkedCode = ({ source, calls, fnNameToFile }) => {
       lines.push(currentLine);
       currentLine = [];
       butLast(textLines).forEach(prefixLine => {
-        lines.push(<code>{prefixLine + "\n"}</code>);
+        const id = "line-" + (lines.length + 1);
+        lines.push(
+          <code id={id} key={lines.length}>
+            {prefixLine + "\n"}
+          </code>
+        );
       });
       currentLine.push(last(textLines));
     }
@@ -62,8 +67,9 @@ const LinkedCode = ({ source, calls, fnNameToFile }) => {
   }
 
   if (currentLine.length > 0) {
+    const id = "line-" + (lines.length + 1);
     lines.push(
-      <code>
+      <code id={id} key={lines.length}>
         {currentLine}
         {"\n"}
       </code>
