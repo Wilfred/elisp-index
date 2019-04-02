@@ -126,6 +126,49 @@ Function symbols that do not occur before macro expansion are ignored."
            (error "Unexpected error whilst reading %s position %s: %s"
                   (buffer-file-name) (point) err)))))))
 
+(defun elisp-index--alist-val-count (alist val)
+  "Return the count of the number of pairs in LIST
+whose cdr is VAL."
+  (let ((count 0))
+    (--each alist
+      (when (eq (cdr it) val)
+        (setq count (1+ count))))
+    count))
+
+(defun elisp-index--uniquify-syms (form syms &optional mapping)
+  "Replace any symbol in FORM with a unique symbol, if that symbool
+occurs in SYMS.
+
+Return a pair (REPLACED . MAPPING), where MAPPING translates
+unique symbols to the original."
+  (cond
+   ((and (symbolp form)
+         (memq form syms))
+    (let ((new-sym
+           (make-symbol
+            (format "%s-%d" form
+                    (elisp-index--alist-val-count mapping form)))))
+      (cons
+       new-sym
+       (cons (cons new-sym form)
+             mapping))))
+   ((not (consp form))
+    (cons form mapping))
+   (t
+    (-let* (((head . mapping)
+             (elisp-index--uniquify-syms
+              (car form)
+              syms
+              mapping))
+            ((rest . mapping)
+             (elisp-index--uniquify-syms
+              (cdr form)
+              syms
+              mapping)))
+      (cons
+       (cons head rest)
+       mapping)))))
+
 (defun elisp-index--walk-calls (form)
   (cond
    ((not (consp form))
