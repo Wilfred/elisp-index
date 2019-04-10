@@ -248,19 +248,37 @@ macro calls."
     (nreverse syms)))
 
 (defun elisp-index--called-macros-in (form)
-  "Return a list of all the macros used in FORM."
+  "Return a list of all the macros used in FORM.
+
+If a macro expands to another macro, include both in the result."
   ;; Approximate the macro expansion that Emacs itself does. Emacs'
   ;; implementation works by `macroexp--expand-all' and
   ;; `macroexp--all-forms' calling each other.
   (when (consp form)
-    ;; Perform one step of macro expansion.
+    ;; Perform one step of macro expansion of the car of this form.
     (let* ((expanded (macroexpand-1 form))
            ;; If we aren't quoted, expand any macro calls in the body.
            (rest
-            (when (and (consp expanded)
-                       (consp (cdr expanded))
-                       (not (eq (car expanded) 'quote)))
-              (--mapcat (elisp-index--called-macros-in it) (cdr form)))))
+            (when (consp expanded)
+              (cond
+               ;; (lambda ...) expands to (function (lambda () ...)).
+               ;; Expand the lambda body.
+               ((and (eq (car expanded) 'function)
+                     (eq (car-safe (car-safe (cdr expanded))) 'lambda))
+                (let* ((lambda-form (nth 1 expanded))
+                       (lambda-body (cddr lambda-form)))
+                  (--mapcat (elisp-index--called-macros-in it) lambda-body)))
+               ;; Otherwise, don't expand the body in (quote ...) or (function ...).
+               ((memq (car expanded) (list 'quote 'function))
+                nil)
+               ((not (equal form expanded))
+                ;; Keep expanding this form, in case the macro expands
+                ;; to other macros.
+                (elisp-index--called-macros-in expanded))
+               (t
+                ;; The car wasn't a macro, so recurse on the cdr. The
+                ;; cdr should always be a proper list.
+                (--mapcat (elisp-index--called-macros-in it) (cdr expanded)))))))
       (if (equal form expanded)
           ;; If we didn't expand anything at the top-level, the car
           ;; wasn't a macro.

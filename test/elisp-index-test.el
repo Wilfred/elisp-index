@@ -96,6 +96,33 @@
      '(defun foo () (when t (bar))))
     (list 'defun 'when))))
 
+(ert-deftest elisp-index--called-macros-in-params ()
+  "We shouldn't look inside parameter lists for macros."
+  (should
+   (equal
+    (elisp-index--called-macros-in
+     '(defun foo (when) 42))
+    (list 'defun))))
+
+(defmacro elisp-index--when (bool &rest body)
+  `(when ,bool ,@body))
+
+(ert-deftest elisp-index--called-macros-in-other-macros ()
+  "Handle macros that expand to other macros."
+  (should
+   (equal
+    (elisp-index--called-macros-in
+     '(elisp-index--when t (foo) (bar)))
+    (list 'elisp-index--when 'when))))
+
+(ert-deftest elisp-index--called-macros-in-sublist ()
+  "We should handle macros that are nested inside function calls"
+  (should
+   (equal
+    (elisp-index--called-macros-in
+     '(foo (when t (bar))))
+    (list 'when))))
+
 (ert-deftest elisp-index--called-macros-quote ()
   (should
    (equal
